@@ -1,4 +1,5 @@
-baseURL = "https://statkwon.github.io"
+URL = "statkwon.github.io"
+baseURL = ""
 
 languageCode = "en-us"
 title = "statkwon's blog"
@@ -7,7 +8,7 @@ theme = "techdoc"
 [params]
 version = "1.0.0"
 github_repository = "https://github.com/statkwon"
-github_doc_repository = "https://github.com/statkwon/blog/content"
+github_doc_repository = "https://github.com/statkwon/blog"
 menu_style = "open-menu"
 
 [menu]
