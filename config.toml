@@ -1,5 +1,5 @@
 URL = "statkwon.github.io"
-baseURL = "/blog"
+baseURL = ""
 
 languageCode = "en-us"
 title = "statkwon's blog"
