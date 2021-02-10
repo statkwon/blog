@@ -1,0 +1,7 @@
+[submodule "themes/techdoc"]
+	path = themes/techdoc
+	url = https://github.com/statkwon/hugo-theme-techdoc.git
+[submodule "public"]
+	path = public
+	url = https://github.com/statkwon/statkwon.github.io.git
+	branch = master

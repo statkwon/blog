@@ -1,0 +1,22 @@
+baseURL = "statkwon.github.io"
+
+languageCode = "en-us"
+title = "statkwon's blog"
+theme = "techdoc"
+
+[params]
+version = "1.0.0"
+github_repository = "https://github.com/statkwon"
+github_doc_repository = "https://github.com/statkwon/statkwon.github.io"
+menu_style = "open-menu"
+
+[menu]
+    [[menu.main]]
+        name = "Home"
+        url = "/"
+        weight = 1
+
+    [[menu.main]]
+        name = "Instagram"
+        url = "https://www.instagram.com/kwon_leben/"
+        weight = 2
