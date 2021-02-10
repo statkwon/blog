@@ -7,7 +7,7 @@ theme = "techdoc"
 [params]
 version = "1.0.0"
 github_repository = "https://github.com/statkwon"
-github_doc_repository = "https://github.com/statkwon/statkwon.github.io"
+github_doc_repository = "https://github.com/statkwon/blog/content"
 menu_style = "open-menu"
 
 [menu]
