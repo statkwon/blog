@@ -2,11 +2,11 @@
 title: "ML"
 date: 2021-02-10T15:25:32+09:00
 draft: false
-weight: 2
+weight: 3
 ---
 
-## [What is ML?](./1)
+### Reference
 
-## [Linear Regression](./2)
-
-공사중입니다.
+1. Introduction to Statistical Learning with Applications in R
+2. The Elements of Statistical Learning
+3. Pattern Recognition and Machine Learning
