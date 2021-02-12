@@ -9,4 +9,5 @@ weight: 2
 
 1. Introduction to Statistical Learning with Applications in R
 2. The Elements of Statistical Learning
-3. Pattern Recognition and Machine Learning
+3. Prbabilistic Machine Learning
+4. Pattern Recognition and Machine Learning
