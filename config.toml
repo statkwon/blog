@@ -1,4 +1,4 @@
-baseURL = "https://statkwon.github.io"
+baseURL = "https://statkwon.github.io/"
 
 languageCode = "en-us"
 title = "ML Lab"
