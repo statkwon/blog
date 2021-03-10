@@ -3,6 +3,7 @@ baseURL = "https://statkwon.github.io"
 languageCode = "en-us"
 title = "ML Lab"
 theme = "techdoc"
+hasCJKLanguage = true
 
 [params]
 version = "1.0.0"
