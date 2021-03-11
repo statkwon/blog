@@ -12,7 +12,7 @@ TableOfContents: true
 
 $\\{\mathbf{w}_1, \mathbf{w}_2, \ldots, \mathbf{w}_k\\}$를 Basis로 갖는 $n$차원 공간의 Subspace $W$의 Orthonormal Basis를 구해보자.
 
-![LA fig 7.9.1](/ml/Linear%20Regression/la_fig7.9.1.png)
+![LA fig 7.9.1](/ml/linear_regression/la_fig7.9.1.png)
 
 1. $\mathbf{v}_1=\mathbf{w}_1$
 2. $\mathbf{v}_2=\mathbf{w}_2-\text{proj}\_{W_1}\mathbf{w}_2=\mathbf{w}_2-\dfrac{\mathbf{w}_2\cdot\mathbf{v}_1}{\Vert\mathbf{v}_1\Vert^2}\mathbf{v}_1$
