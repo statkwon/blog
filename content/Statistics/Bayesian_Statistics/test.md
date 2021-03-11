@@ -11,4 +11,12 @@ TableOfContents: true
 
 ## 2. Bayesian Inference
 
+Anyway, the main goal of Bayesian is not different with Frequentist's. To make inferences about the population.
+
+베이즈 통계학에서는 Parameter를 
+
 ## 3. Posterior Inference for One-Parameter Models
+
+### 3-1. Binomial Models
+
+### 3-2. Poisson Models
