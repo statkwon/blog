@@ -7,14 +7,14 @@ weight: 1
 
 Linear Regression은 Input과 Output 사이의 Linear Relationship을 가정한다.
 
-$$y=X\beta+\epsilon, \quad \epsilon_i \sim (0, \sigma^2)$$
+$$y=X\beta+\epsilon, \quad \epsilon \sim (0, \sigma^2I)$$
 
 $$Y=\begin{bmatrix} y_1 \\\\ y_2 \\\\ \vdots \\\\ y_n \end{bmatrix} \qquad X=\begin{bmatrix} 1 & x_{11} & x_{12} & \cdots & x_{1p} \\\\ 1 & x_{21} & x_{22} & \cdots & x_{2p} \\\\ \vdots & \vdots & \vdots & \ddots & \vdots \\\\ 1 & x_{n1} & x_{n2} & \cdots & x_{np} \end{bmatrix} \qquad \beta=\begin{bmatrix} \beta_0 \\\\ \beta_1 \\\\ \vdots \\\\ \beta_p \end{bmatrix} \qquad \epsilon=\begin{bmatrix} \epsilon_1 \\\\ \epsilon_2 \\\\ \vdots \\\\ \epsilon_n \end{bmatrix}$$
 
 회귀 모델의 Parameter를 추정하는 방법 중 가장 보편적인 것은 Least Square Estimation이다. LSE는 Residual Sum of Squares인 $(y-X\beta)^T(y-X\beta)$를 최소화하는 값을 $\beta$의 추정치로 사용하는 방식이다.
 
 $\begin{aligned}
-\dfrac{\partial\text{RSS}}{\partial\beta}&=\dfrac{\partial (y-X\beta)^T(Y-X\beta)}{\partial\beta} \\\\
+\dfrac{\partial\text{SSE}}{\partial\beta}&=\dfrac{\partial (y-X\beta)^T(Y-X\beta)}{\partial\beta} \\\\
 &=\dfrac{\partial (y^T-\beta^TX^T)(y-X\beta)}{\partial\beta} \\\\
 &=\dfrac{\partial (y^Ty-\beta^TX^Ty-y^TX\beta+\beta^TX^TX\beta)}{\partial\beta} \\\\
 &=-2X^Ty+2X^TX\beta
