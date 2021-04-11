@@ -2,7 +2,7 @@
 title: "Linear Regression"
 date: 2021-03-10
 draft: false
-weight: 1
+TableOfContents: false
 ---
 
 Linear Regression은 Input과 Output 사이의 Linear Relationship을 가정한다.
@@ -28,6 +28,6 @@ $X$가 Full Column Rank를 갖는 경우($X^TX$가 Nonsingular한 경우) $\hat{
 
 $$\hat{y}=X\hat{\beta}=X(X^TX)^{-1}X^Ty$$
 
-![ESL fig 3.2](/ml/linear-regression/esl_fig3.2.png)
+![ESL fig 3.2](/ml/fig/esl_fig3.2.png)
 
 위와 같은 그림을 참고하여 LSE의 기하적인 의미를 생각해볼 수 있다. $\hat{y}=X(X^TX)^{-1}X^Ty$에서 $X(X^TX)^{-1}X^T$를 $H$라고 하면, $H^2=H$이고 $H^T=H$임을 쉽게 확인할 수 있다. 즉, $H$는 Symmetric하고 Idempotent한 행렬이므로 Orthogonal Projection에 대한 Standard Matrix라고 할 수 있다. 그렇기 때문에 $\hat{y}$은 $y$를 $X$의 Column Space에 Orthogonal Projection한 것과 같다. 앞서 $X$가 Full Column Rank를 갖지 않으면 해가 존재하기는 하지만 여러 개의 해를 갖게 된다고 하였는데, 이는 기하적으로 생각했을 때, 여전히 $y$를 $X$의 Column Space에 Projection할 수는 있지만 그것이 Orthogonal하지는 않은 것이라고 할 수 있다.

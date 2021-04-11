@@ -2,7 +2,6 @@
 title: "Gauss-Markov Theorem"
 date: 2021-03-10
 draft: false
-weight: 2
 TableOfContents: false
 ---
 

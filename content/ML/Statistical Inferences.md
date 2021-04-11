@@ -2,7 +2,6 @@
 title: "Statistical Inferences"
 date: 2021-03-10
 draft: true
-weight: 1
 TableOfContents: true
 ---
 
