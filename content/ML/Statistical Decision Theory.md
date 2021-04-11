@@ -1,7 +1,7 @@
 ---
 title: "Statistical Decision Theory"
 date: 2021-03-30
-draft: false
+draft: true
 TableOfContents: true
 ---
 
