@@ -10,7 +10,7 @@ version = "1.0.0"
 description = "STATKWON"
 github_repository = "https://github.com/statkwon"
 github_doc_repository = "https://github.com/statkwon/blog"
-menu_style = "slide-menu"
+menu_style = "open-menu"
 menu_exclusion = ["projects"]
 
 [menu]

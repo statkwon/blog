@@ -1,5 +1,5 @@
 ---
-title: "5. Resampling Methods"
+title: "Resampling Methods"
 date: 2021-02-10T16:18:21+09:00
 draft: false
 TableOfContents: true

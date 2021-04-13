@@ -1,8 +1,7 @@
 ---
-title: "1. Introduction"
+title: "Bayesian Statistics"
 date: 2021-02-10T16:22:53+09:00
-draft: true
-weight: 1
+draft: false
 TableOfContents: true
 ---
 

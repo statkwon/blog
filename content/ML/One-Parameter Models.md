@@ -1,8 +1,7 @@
 ---
-title: "2. One-parameter models"
+title: "One-parameter models"
 date: 2021-02-10T16:25:47+09:00
-draft: true
-weight: 2
+draft: false
 TableOfContents: true
 ---
 

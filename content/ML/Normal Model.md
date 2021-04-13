@@ -1,8 +1,7 @@
 ---
-title: "3. Normal Model"
+title: "Normal Model"
 date: 2021-02-11T23:47:49+09:00
 draft: true
-weight: 3
 TableOfContents: true
 ---
 

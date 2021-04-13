@@ -1,5 +1,5 @@
 ---
-title: "2. Statistical Learning"
+title: "Statistical Learning"
 date: 2020-09-01
 lastmod: 2021-02-13
 draft: false
