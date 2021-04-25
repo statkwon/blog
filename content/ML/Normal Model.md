@@ -1,7 +1,7 @@
 ---
 title: "Normal Model"
 date: 2021-02-11T23:47:49+09:00
-draft: true
+draft: false
 TableOfContents: true
 ---
 
@@ -102,6 +102,3 @@ $\nu_0\rightarrow\nu_n=\nu_0+n$
 $\mu_0\rightarrow\mu_n=\dfrac{\kappa_0\mu_0+n\bar{y}}{\kappa_n}$
 
 $\kappa_0\rightarrow\kappa_n=\kappa_0+n$
-
-## 3.4. Improper Priors
-
