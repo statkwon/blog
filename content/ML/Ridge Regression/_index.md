@@ -46,3 +46,9 @@ $\begin{aligned}
 \end{aligned}$
 
 Here, $\lambda$ decides the amount of the shrinkage. We call the shrinkage term above 'effective degrees of freedom'.
+
+---
+
+**Reference**
+
+1. Elements of Statistical Learning

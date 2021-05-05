@@ -67,3 +67,9 @@ We showed that $f(X)$, $f'(X)$ and $f''(X)$ are all continuous at $\xi_1$, $\xi_
 The number of parameters to fit regression spline is $(M+1)\times(K+1)-M\times K=M+K+1$.
 
 However, regression spline still has a problem that adding a continuity constraint cannot fix the irregularity beyond the boundaries.
+
+---
+
+**Reference**
+
+1. Elements of Statistical Learning

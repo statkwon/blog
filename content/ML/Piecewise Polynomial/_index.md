@@ -1,6 +1,6 @@
 ---
 title: "Piecewise Polynomial"
-draft: false
+draft: true
 ---
 
 To move beyond linearity, we will transform $X$ and use linear models in this new space of derived input features.

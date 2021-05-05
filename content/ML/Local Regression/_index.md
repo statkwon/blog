@@ -73,3 +73,9 @@ $\displaystyle\underset{\alpha(x_0), \beta_j(x_0)}{\text{argmin}}\sum_{i=1}^nK_\
 The bias of $d$th-order local polynomial only depends on the $(d+1)$th derivative and the higher-order terms. We can prove this by the similar way as in the local linear.
 
 As a result, local linear regression cannot control the bias related to the interior curvature. Local polynomial can be the solution, but it also increases the model variance. Therefore, we use the local polynomial with 
+
+---
+
+**Reference**
+
+1. Elements of Statistical Learning

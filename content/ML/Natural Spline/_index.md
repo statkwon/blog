@@ -61,3 +61,9 @@ $\begin{aligned}
 \therefore f(X)&=\beta_1+\beta_2X+g(X) \\\\
 &=\beta_1+\beta_2X+\sum_{k=1}^{K-2}\phi_k\left\\{d_k(X)-d_{K-1}(X)\right\\}
 \end{aligned}$
+
+---
+
+**Reference**
+
+1. Elements of Statistical Learning

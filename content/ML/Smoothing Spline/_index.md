@@ -46,3 +46,9 @@ Since the solution is a natural spline, we can write it as $\displaystyle f(x)=\
 $$\underset{\theta}{\text{argmin}}\\;(y-N\theta)^T(y-N\theta)+\lambda\theta^T\Omega_N\theta$$
 
 $\\{N\\}_{ij}$ is $N_j(x_i)$ and $\\{\Omega_N\\}\_{jk}$ is $\int N''_j(t)N''_k(t)dt$. The solution will be $\hat{\theta}=(N^TN+\lambda\Omega_N)^{-1}N^Ty$.
+
+---
+
+**Reference**
+
+1. Elements of Statistical Learning
