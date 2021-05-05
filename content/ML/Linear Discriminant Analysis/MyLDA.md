@@ -1,7 +1,6 @@
 ---
 title: "MyLDA.py"
 draft: false
-tableofcontents: false
 ---
 
 Github Link: [MyLDA.ipynb](https://github.com/statkwon/ML_Study/blob/master/MyLDA.ipynb)
