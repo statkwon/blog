@@ -4,29 +4,73 @@ date: 2021-03-10
 draft: false
 ---
 
-Linear Regression은 Input과 Output 사이의 Linear Relationship을 가정한다.
+Linear Regression assumes the linear relationship between the inputs and output.
 
-$$y=X\beta+\epsilon, \quad \epsilon \sim (0, \sigma^2I)$$
+$$\mathbf{y}=X\boldsymbol{\beta}+\boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon}\sim (\mathbf{0}, \sigma^2I_n)$$
 
-$$Y=\begin{bmatrix} y_1 \\\\ y_2 \\\\ \vdots \\\\ y_n \end{bmatrix} \qquad X=\begin{bmatrix} 1 & x_{11} & x_{12} & \cdots & x_{1p} \\\\ 1 & x_{21} & x_{22} & \cdots & x_{2p} \\\\ \vdots & \vdots & \vdots & \ddots & \vdots \\\\ 1 & x_{n1} & x_{n2} & \cdots & x_{np} \end{bmatrix} \qquad \beta=\begin{bmatrix} \beta_0 \\\\ \beta_1 \\\\ \vdots \\\\ \beta_p \end{bmatrix} \qquad \epsilon=\begin{bmatrix} \epsilon_1 \\\\ \epsilon_2 \\\\ \vdots \\\\ \epsilon_n \end{bmatrix}$$
+Here $\mathbf{y}$ and $\boldsymbol{\epsilon}$ is a $n\times 1$ vector, $X$ is a $n\times p$ matrix, and $\boldsymbol{\beta}$ is a $p\times 1$ vector.
 
-회귀 모델의 Parameter를 추정하는 방법 중 가장 보편적인 것은 Least Square Estimation이다. LSE는 Residual Sum of Squares인 $(y-X\beta)^T(y-X\beta)$를 최소화하는 값을 $\beta$의 추정치로 사용하는 방식이다.
+We have to estimate $\boldsymbol{\beta}$ to fit our linear model and the most common way is to use a LSE(Least Squares Estimate). LSE is an estimate which minimizes $(\mathbf{y}-X\boldsymbol{\beta})^T(\mathbf{y}-X\boldsymbol{\beta})$.
 
 $\begin{aligned}
-\dfrac{\partial\text{SSE}}{\partial\beta}&=\dfrac{\partial (y-X\beta)^T(Y-X\beta)}{\partial\beta} \\\\
-&=\dfrac{\partial (y^T-\beta^TX^T)(y-X\beta)}{\partial\beta} \\\\
-&=\dfrac{\partial (y^Ty-\beta^TX^Ty-y^TX\beta+\beta^TX^TX\beta)}{\partial\beta} \\\\
-&=-2X^Ty+2X^TX\beta
+\dfrac{\partial}{\partial\boldsymbol{\beta}}(\mathbf{y}-X\boldsymbol{\beta})^T(\mathbf{y}-X\boldsymbol{\beta})&=\dfrac{\partial}{\partial\boldsymbol{\beta}}(\mathbf{y}^T-\boldsymbol{\beta}^TX^T)(\mathbf{y}-X\boldsymbol{\beta}) \\\\
+&=\dfrac{\partial}{\partial\beta}(\mathbf{y}^T\mathbf{y}-\boldsymbol{\beta}^TX^T\mathbf{y}-\mathbf{y}^TX\boldsymbol{\beta}+\boldsymbol{\beta}^TX^TX\boldsymbol{\beta}) \\\\
+&=-2X^T\mathbf{y}+2X^TX\boldsymbol{\beta}
 \end{aligned}$
 
-따라서 이 식이 $0$이 되게 하는 $\beta$를 찾아보면 아래와 같다.
+Thus, if we solve the equation $-2X^T\mathbf{y}+2X^TX\boldsymbol{\beta}=0$, we can get the unique solution $\hat{\boldsymbol{\beta}}=(X^TX)^{-1}X^T\mathbf{y}$ when $X^TX$ is nonsingular. This condition is same as that $X$ has a full colunm rank. If don't, a solution still exists, but is not unique. This is the reason why we have to consider the variables to be uncorrelated while fitting the regression model.
 
-$$X^TX\beta=X^Ty$$
+---
 
-$X$가 Full Column Rank를 갖는 경우($X^TX$가 Nonsingular한 경우) $\hat{\beta}=(X^TX)^{-1}X^Ty$이 위 식을 만족시키는 유일한 해가 된다. 만약 $X$가 Full Column Rank를 갖지 않는다면 위 식을 만족시키는 해가 존재하기는 하지만, 유일하지 않고 여러 개의 해를 갖게 된다. 회귀 분석에서 $X$ 변수들 사이의 독립을 전제로 하는 것 역시 이와 같은 맥락에서 나온 것으로 생각할 수 있다.
+It is useful to think about the geometric meaning of least squares estimate.
 
-$$\hat{y}=X\hat{\beta}=X(X^TX)^{-1}X^Ty$$
+{{<figure src="/esl_fig_3.2.png" width="400" height="200">}}
 
-![ESL fig 3.2](/esl_fig_3.2.png)
+When the inverse exists, we can express $\hat{\mathbf{y}}=X\hat{\boldsymbol{\beta}}$ as $X(X^TX)^{-1}X^T\mathbf{y}$. If we let $H=X(X^TX)^{-1}X^T$, it is not that difficult to recognize that $H$ is a projection matrix due to the fact that $H$ is idempotent and symmetric. Thus, $\hat{\mathbf{y}}$ can be thought of as the result of projection of $\mathbf{y}$ onto the column space of $X$. Furthermore, if $X$ does not have full column rank, $\hat{\mathbf{y}}$ can still be regarded as the result of projection of $\mathbf{y}$, but not an orthogonal one.
 
-위와 같은 그림을 참고하여 LSE의 기하적인 의미를 생각해볼 수 있다. $\hat{y}=X(X^TX)^{-1}X^Ty$에서 $X(X^TX)^{-1}X^T$를 $H$라고 하면, $H^2=H$이고 $H^T=H$임을 쉽게 확인할 수 있다. 즉, $H$는 Symmetric하고 Idempotent한 행렬이므로 Orthogonal Projection에 대한 Standard Matrix라고 할 수 있다. 그렇기 때문에 $\hat{y}$은 $y$를 $X$의 Column Space에 Orthogonal Projection한 것과 같다. 앞서 $X$가 Full Column Rank를 갖지 않으면 해가 존재하기는 하지만 여러 개의 해를 갖게 된다고 하였는데, 이는 기하적으로 생각했을 때, 여전히 $y$를 $X$의 Column Space에 Projection할 수는 있지만 그것이 Orthogonal하지는 않은 것이라고 할 수 있다.
+---
+
+With a bit more strict assumption, we can make some statistical inferences about model parameters. From now on, we will assume that $\boldsymbol{\epsilon}$ follows a multivariate normal distribution with the mean vector $\mathbf{0}$ and the covariance matrix $\sigma^2I_n$. Then it is easy to show that $\hat{\boldsymbol{\beta}}\sim N_p(\boldsymbol{\beta}, \sigma^2(X^TX)^{-1})$.
+
+$\begin{aligned}
+\text{E}[\hat{\boldsymbol{\beta}}]&=\text{E}[(X^TX)^{-1}X^T\mathbf{y}] \\\\
+&=(X^TX)^{-1}X^T\text{E}[\mathbf{y}] \\\\
+&=(X^TX)^{-1}X^TX\boldsymbol{\beta} \\\\
+&=\boldsymbol{\beta}
+\end{aligned}$
+
+$\begin{aligned}
+\text{Cov}(\hat{\boldsymbol{\beta}})&=\text{Cov}((X^TX)^{-1}X^T\mathbf{y}) \\\\
+&=(X^TX)^{-1}X^T\text{Cov}(\mathbf{y})X(X^TX)^{-1} \\\\
+&=\sigma^2(X^TX)^{-1}
+\end{aligned}$
+
+Distribution of $\hat{\sigma}^2$ can also be obtained, $(n-p-1)\hat{\sigma}^2\sim\sigma^2\chi^2_{n-p-1}$. With these results, we can get some confidence intervals for the parameters or can conduct some hypothesis tests.
+
+---
+
+We use the LSE because it has some good properties. Gauss-Markov theorem states that the LSE is BLUE, which means Best Linear Unbiased Estimate. According to this theorem, LSE has the smallest variance among all linear unbiased estimates. We've already showed that LSE is an unbaised estimate, so we will just proved for the smallest variance.
+
+Let $\tilde{\boldsymbol{\beta}}=C\mathbf{y}$ is an unbiased estimate for $\boldsymbol{\beta}$, where $C=(X^TX)^{-1}X^T+D$ and $D$ is not a zero matrix.
+
+$\begin{aligned}
+\text{E}[\tilde{\boldsymbol{\beta}}]&=\text{E}\left[\left\((X^TX)^{-1}X^T+D\right\)\mathbf{y}\right] \\\\
+&=\text{E}\left[\left\((X^TX)^{-1}X^T+D\right\)(X\boldsymbol{\beta}+\boldsymbol{\epsilon})\right] \\\\
+&=\left\((X^TX)^{-1}X^T+D\right\)X\boldsymbol{\beta}+\left\((X^TX)^{-1}X^T+D\right\)\text{E}[\boldsymbol{\epsilon}] \\\\
+&=(X^TX)^{-1}X^TX\boldsymbol{\beta}+DX\boldsymbol{\beta} \\\\
+&=(I+DX)\boldsymbol{\beta}
+\end{aligned}$
+
+We assumed that $\tilde{\boldsymbol{\beta}}$ is an unbiased estimate of $\boldsymbol{\beta}$, so $DX$ should be $0$.
+
+$\begin{aligned}
+\text{Var}(\tilde{\boldsymbol{\beta}})&=\sigma^2\left\((X^TX)^{-1}X^T+D\right\)\left\(X(X^TX)^{-1}+D^T\right\) \\\\
+&=\sigma^2\left\((X^TX)^{-1}X^TX(X^TX)^{-1}+(X^TX)^{-1}X^TD^T+DX(X^TX)^{-1}+DD^T\right\) \\\\
+&=\sigma^2(X^TX)^{-1}+\sigma^2(X^TX)^{-1}(DX)^T+\sigma^2DX(X^TX)^{-1}+\sigma^2DD^T \\\\
+&=\sigma^2(X^TX)^{-1}+\sigma^2DD^T \\\\
+&=\text{Var}(\hat{\boldsymbol{\beta}})+\sigma^2DD^T
+\end{aligned}$
+
+This equatinos hold due to the fact that $DX=0$. Thus, it is evident that $\text{Var}(\hat{\boldsymbol{\beta}})≤\text{Var}(\tilde{\boldsymbol{\beta}})$, which means that $\hat{\boldsymbol{\beta}}$ has the smallest variance among all linear unbiased estimates.
+
+Nonetheless, there might be another better estimate for $\boldsymbol{\beta}$. We proved that the LSE has the smallest variance among unbiased estimates, not among the all estimates. We still has a possibility to trade a little bias for a larger reduction in variance. Ridge regression is one of the example of this possibility.
