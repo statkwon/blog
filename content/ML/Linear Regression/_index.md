@@ -4,6 +4,8 @@ date: 2021-03-10
 draft: false
 ---
 
+**Linear Regression**
+
 Linear Regression assumes the linear relationship between the inputs and output.
 
 $$\mathbf{y}=X\boldsymbol{\beta}+\boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon}\sim (\mathbf{0}, \sigma^2I_n)$$
@@ -22,6 +24,8 @@ Thus, if we solve the equation $-2X^T\mathbf{y}+2X^TX\boldsymbol{\beta}=0$, we c
 
 ---
 
+**Least Squares Estimate**
+
 It is useful to think about the geometric meaning of least squares estimate.
 
 {{<figure src="/esl_fig_3.2.png" width="400" height="200">}}
@@ -29,6 +33,8 @@ It is useful to think about the geometric meaning of least squares estimate.
 When the inverse exists, we can express $\hat{\mathbf{y}}=X\hat{\boldsymbol{\beta}}$ as $X(X^TX)^{-1}X^T\mathbf{y}$. If we let $H=X(X^TX)^{-1}X^T$, it is not that difficult to recognize that $H$ is a projection matrix due to the fact that $H$ is idempotent and symmetric. Thus, $\hat{\mathbf{y}}$ can be thought of as the result of projection of $\mathbf{y}$ onto the column space of $X$. Furthermore, if $X$ does not have full column rank, $\hat{\mathbf{y}}$ can still be regarded as the result of projection of $\mathbf{y}$, but not an orthogonal one.
 
 ---
+
+**Statistical Inferences**
 
 With a bit more strict assumption, we can make some statistical inferences about model parameters. From now on, we will assume that $\boldsymbol{\epsilon}$ follows a multivariate normal distribution with the mean vector $\mathbf{0}$ and the covariance matrix $\sigma^2I_n$. Then it is easy to show that $\hat{\boldsymbol{\beta}}\sim N_p(\boldsymbol{\beta}, \sigma^2(X^TX)^{-1})$.
 
@@ -48,6 +54,8 @@ $\begin{aligned}
 Distribution of $\hat{\sigma}^2$ can also be obtained, $(n-p-1)\hat{\sigma}^2\sim\sigma^2\chi^2_{n-p-1}$. With these results, we can get some confidence intervals for the parameters or can conduct some hypothesis tests.
 
 ---
+
+**Gauss-Markov Theorem**
 
 We use the LSE because it has some good properties. Gauss-Markov theorem states that the LSE is BLUE, which means Best Linear Unbiased Estimate. According to this theorem, LSE has the smallest variance among all linear unbiased estimates. We've already showed that LSE is an unbaised estimate, so we will just proved for the smallest variance.
 

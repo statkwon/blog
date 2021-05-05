@@ -1,6 +1,6 @@
 ---
-title: "Linear Regression"
-date: 2021-02-10T16:15:20+09:00
+title: "ISLR CH2"
+date: 2021-02-10
 draft: false
 TableOfContents: true
 ---
