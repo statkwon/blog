@@ -1,7 +1,6 @@
 ---
 title: "Resampling Methods"
-date: 2021-02-10T16:18:21+09:00
-draft: false
+date: 2021-02-10
 TableOfContents: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "MyLogisticRegression.py"
-draft: false
+date: 2021-04-11
 ---
 
 Github Link: [MyLogisticRegression.ipynb](https://github.com/statkwon/ML_Study/blob/master/MyLogisticRegression.ipynb)

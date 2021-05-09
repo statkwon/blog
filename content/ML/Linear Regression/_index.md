@@ -1,7 +1,6 @@
 ---
 title: "Linear Regression"
 date: 2021-03-10
-draft: false
 ---
 
 **Linear Regression**

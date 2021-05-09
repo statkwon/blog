@@ -1,7 +1,6 @@
 ---
 title: "Moving Beyond Linearity"
-date: 2021-02-10T16:20:35+09:00
-draft: false
+date: 2021-02-10
 TableOfContents: true
 ---
 

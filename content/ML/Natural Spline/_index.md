@@ -1,6 +1,5 @@
 ---
 title: "Natural Spline"
-draft: false
 ---
 
 Adding another constraint to regression spline, we can fit natural splines. We will reduce the degree beyond the boundary to $\dfrac{M-1}{2}$.

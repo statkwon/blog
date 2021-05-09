@@ -1,6 +1,6 @@
 ---
 title: "MyLDA.py"
-draft: false
+date: 2021-04-04
 ---
 
 Github Link: [MyLDA.ipynb](https://github.com/statkwon/ML_Study/blob/master/MyLDA.ipynb)

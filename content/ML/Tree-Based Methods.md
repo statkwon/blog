@@ -1,7 +1,6 @@
 ---
 title: "8. Tree-Based Methods"
-date: 2021-02-10T16:21:20+09:00
-draft: true
+date: 2021-02-10
 TableOfContents: true
 ---
 

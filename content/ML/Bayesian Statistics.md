@@ -1,7 +1,6 @@
 ---
 title: "Bayesian Statistics"
-date: 2021-02-10T16:22:53+09:00
-draft: false
+date: 2021-02-10
 TableOfContents: true
 ---
 

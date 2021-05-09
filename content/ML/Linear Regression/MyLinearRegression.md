@@ -1,6 +1,6 @@
 ---
 title: "MyLinearRegression.py"
-draft: false
+date: 2021-05-05
 ---
 
 Github Link: [MyLinearRegression.ipynb](https://github.com/statkwon/ML_Study/blob/master/MyLinearRegression.ipynb)

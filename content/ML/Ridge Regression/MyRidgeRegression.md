@@ -1,6 +1,6 @@
 ---
 title: "MyRidgeRegression.py"
-draft: false
+date: 2021-05-08
 ---
 
 Github Link: [MyRidgeRegression.ipynb](https://github.com/statkwon/ML_Study/blob/master/MyRidgeRegression.ipynb)

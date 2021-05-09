@@ -1,6 +1,5 @@
 ---
 title: "Smoothing Spline"
-draft: false
 ---
 
 Without any constraint on the form of $f(X)$, we can make the $\text{RSS}$ to be $0$ by choosing any function that interpolates all data points. However, this will be connected to an overfitting problem. To prevent this, we will use the regularization term.

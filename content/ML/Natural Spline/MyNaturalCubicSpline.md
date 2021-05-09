@@ -1,6 +1,6 @@
 ---
 title: "MyNaturalCubicSpline.py"
-draft: false
+date: 2021-05-02
 ---
 
 Github Link: [MyNaturalCubicSpline.ipynb](https://github.com/statkwon/ML_Study/blob/master/MyNaturalCubicSpline.ipynb)

@@ -1,8 +1,6 @@
 ---
 title: "Statistical Learning"
 date: 2020-09-01
-lastmod: 2021-02-13
-draft: false
 TableOfContents: true
 ---
 

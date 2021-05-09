@@ -1,6 +1,6 @@
 ---
 title: "MyRegressionSpline.py"
-draft: false
+date: 2021-04-25
 ---
 
 Github Link: [MyRegressionSpline.ipynb](https://github.com/statkwon/ML_Study/blob/master/MyRegressionSpline.ipynb)

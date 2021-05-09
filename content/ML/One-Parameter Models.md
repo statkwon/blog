@@ -1,7 +1,6 @@
 ---
 title: "One-parameter models"
-date: 2021-02-10T16:25:47+09:00
-draft: false
+date: 2021-02-10
 TableOfContents: true
 ---
 
