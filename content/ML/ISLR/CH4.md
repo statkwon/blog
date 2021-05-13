@@ -1,5 +1,5 @@
 ---
-title: "CH4 Classification"
+title: "4. Classification"
 date: 2021-02-10
 TableOfContents: true
 weight: 3
@@ -13,7 +13,7 @@ weight: 3
 
 ## 4.3. Logistic Regression
 
-![ISLR fig 4.2](/ml/fig/islr_fig4.2.png)
+{{<figure src="/islr_fig_4.2.png" width="600" height="400">}}
 
 로지스틱 회귀 모형은 $X$가 주어졌을 때 $Y$가 $1$의 범주에 속할 조건부확률인 $P(Y=1|X)$에 대한 모형이다. $P(Y=1|X)$는 확률값이기 때문에 항상 $0$과 $1$ 사이의 값만을 갖는다. 로지스틱 회귀 모형에서는 확률값에 대해 임의의 Cutoff 값을 설정하여 범주를 구분한다. 예를 들어 $0.5$를 기준으로 삼은 경우, $P(Y=1|X)>0.5$면 $1$로 분류하고, $P(Y=1|X)<0.5$면 $0$으로 분류하는 식이다.
 
@@ -103,7 +103,7 @@ $$\delta_k(x)=x^T\mathbf{\Sigma}^{-1}\mu_k-\frac{1}{2}\mu^T_k\mathbf{\Sigma}^{-1
 
 위 식을 최대화하는 $k$값으로 범주를 분류한다.
 
-![ISLR fig 4.6](/ml/fig/islr_fig4.6.png)
+{{<figure src="/islr_fig_4.6.png" width="600" height="400">}}
 
 뿐만 아니라, 위 그림과 같이 각각의 범주를 구분하는 Decision Boundary를 구하는 것도 가능하다. $k$번째 범주와 $l$번째 범주를 구분하는 Decision Boundary는 $\delta_k(x)=\delta_l(x)$, 즉, $x^T\mathbf{\Sigma}^{-1}\mu_k-\frac{1}{2}\mu^T_k\mathbf{\Sigma}^{-1}\mu_k=x^T\mathbf{\Sigma}^{-1}\mu_l-\frac{1}{2}\mu^T_l\mathbf{\Sigma}^{-1}\mu_l$를 만족하는 $x$값들의 집합이다. 이때 여전히 $\mu_1, \ldots, \mu_k$, $\mathbf{\Sigma}$, $\pi_1, \ldots, \pi_k$의 값을 알지 못하므로 각각의 추정치를 대신 사용한다. 위 그림에서 LDA Decision Boudnary(직선)가 Bayes Decision Boundary(점선)와 매우 유사한 것을 확인할 수 있다.
 
@@ -111,15 +111,13 @@ $$\delta_k(x)=x^T\mathbf{\Sigma}^{-1}\mu_k-\frac{1}{2}\mu^T_k\mathbf{\Sigma}^{-1
 
 Regression 문제와 달리, Classification 문제에서는 모형의 성능을 측정할 때 주의해야할 점이 있다. 범주가 두 개인 경우, Binary Classifier는 두 가지 종류의 Error를 발생시키기 때문에, 모형의 성능을 판단할 때 두 가지 Error 모두 고려해주어야 한다. Confusion Matrix를 통해 이를 쉽게 확인할 수 있다.
 
-![FIGURE 4](/ISLR/FIGURE_4.png)
-
 기본적인 형태의 Confusion Matrix는 역학 용어를 기반으로 한다. Positive는 양성을, Negative는 음성을 뜻한다. 따라서 True Positive는 양성으로 예측하였고, 실제로 양성인 경우, True Negative는 음성으로 예측하였고, 실제로 음성인 경우, False Positive는 양성으로 예측하였지만 실제로 음성인 경우, False Negative는 음성으로 예측하였지만 실제로 양성인 경우에 해당한다. 이때 실제로 양성인 경우에 대해 정확하게 예측한 확률을 Sensitivity, 실제로 음성인 경우에 대해 정확하게 예측한 확률을 Specificity라고 한다. 만약 어느 한 쪽의 지표가 더 중요한 상황이라면, 범주를 구분하는 기준값을 조절하여 더 중요한 쪽의 정확도를 높일 수 있다. $P(Y=1|X=x)>c$에서 $c$를 threshold라고 부르는데, 이것이 바로 앞서 말한 범주를 구분하는 기준이 된다. 예를 들어, Sensitivity보다 Specificity를 우선시 해야하는 경우 threshold값을 높임으로써 False Positive인 경우를 줄일 수 있다. threshold값은 분류하고자 하는 데이터의 도메인 지식에 따라 결정해야한다.
 
 $$\text{Sensitivity}=\frac{\text{TP}}{\text{FN}+\text{TP}} \qquad \text{Specificity}=\frac{\text{TN}}{\text{TN}+\text{FP}}$$
 
 $1-\text{Specificity}$를 $x$축으로, $\text{Sensitivity}$를 $y$축으로 하는 그래프인 ROC Curve는 각 threshold값에 따른 두 가지 Error를 동시에 표현할 수 있다는 점에서 유용하게 사용된다. 또한 모형의 전체적인 성능을 ROC Curve 아래의 면적, AUC로 판단할 수도 있다.
 
-![ISLR fig 4.8](/ml/fig/islr_fig4.8.png)
+{{<figure src="/islr_fig_4.8.png" width="400" height="200">}}
 
 ### 4.4.4. Quadratic Discriminant Analysis
 
@@ -131,6 +129,6 @@ $$\begin{align} \delta_k(x)&=-\frac{1}{2}(x-\mu_k)^T\mathbf{\Sigma}^{-1}_k(x-\mu
 
 위 식을 최대화하는 $k$값으로 범주를 분류한다. 앞선 경우와 마찬가지로, $\delta_k(x)$가 $x$에 대한 Quadratic Function이기 때문에 Quadratic Discriminant Analysis라고 부른다.
 
-![ISLR fig 4.9](/ml/fig/islr_fig4.9.png)
+{{<figure src="/islr_fig_4.9.png" width="600" height="400">}}
 
 만약 Training Data의 갯수가 부족한 경우라면 일반적으로 분산을 줄일 수 있는 LDA의 성능이 QDA보다 좋다고 할 수 있다. 하지만 Training Data가 충분하여 모형의 분산에 대해 크게 신경을 쓰지 않아도 되는 경우나, Covariance Matrix가 모든 범주에 대해 동일하다는 가정이 적합하지 않은 경우에는 QDA를 사용하는 것이 좋다.

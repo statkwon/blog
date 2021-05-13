@@ -1,5 +1,5 @@
 ---
-title: "CH3 Linear Regression"
+title: "3. Linear Regression"
 date: 2021-02-10
 TableOfContents: true
 weight: 2
@@ -7,7 +7,7 @@ weight: 2
 
 ## 3.1. Simple Linear Regression
 
-![FIGURE 3.1](/ISLR/FIGURE_3.1.png)
+{{<figure src="/islr_fig_3.1.png" width="400" height="200">}}
 
 Simple Linear Regression은 변수 간의 선형 관계를 잘 나타내는 최적의 직선 $\beta_0+\beta_1X$를 찾는 작업이다. 직선의 식을 아는 경우, 새로운 데이터에 대한 예측을 할 수 있다. 따라서 우리는 Training Data를 사용하여 회귀계수 $\beta_0$, $\beta_1$을 추정할 것이다.
 
@@ -162,7 +162,7 @@ $$Y=\beta_0+\beta_1X_1+\beta_2X^2_1+\epsilon$$
 
 선형 회귀 모형은 기본적으로 독립 변수와 반응 변수 사이의 선형 관계를 전제로 한다. 만약 독립 변수와 반응 변수가 선형 관계에 있지 않다면, 모형의 성능이 매우 떨어지게 된다. 따라서 모형을 적합하기 전에 변수 간 관계를 미리 확인할 필요가 있다. Residual Plot은 데이터의 선형성을 확인하기에 가장 적합한 툴이다.
 
-![FIGURE 3.9](/ISLR/FIGURE_3.9.png)
+{{<figure src="/islr_fig_3.9.png" width="600" height="400">}}
 
 이상적인 경우, Residual Plot 상에서 어떠한 패턴도 드러나지 않아야 한다. 만약 특정한 패턴이 발견된다면, 선형 가정에 문제가 있다고 볼 수 있다. Residual Plot이 데이터의 비선형성을 보여준다면, 독립변수에 대해 $\log{X}$, $\sqrt{X}$, $X^2$ 등의 변환을 적용하여 비선형성을 완화할 수 있다.
 
@@ -174,13 +174,13 @@ $$Y=\beta_0+\beta_1X_1+\beta_2X^2_1+\epsilon$$
 
 Error Terms의 등분산성 역시 선형 회귀 모형의 중요한 전제 사항이다. Residual Plot을 그렸을 때 Funnel Shape이 확인된다면 등분산성 가정이 위배된 것으로 판단할 수 있다. 이를 Heteroscedasticity라고 한다. 이러한 문제가 발생한 경우, 반응변수에 대해 $\log{Y}$, $\sqrt{Y}$ 등의 변환을 가함으로써 Error Terms의 이분산성을 완화시킬 수 있다.
 
-![FIGURE 3.11](/ISLR/FIGURE_3.11.png)
+{{<figure src="/islr_fig_3.11.png" width="600" height="400">}}
 
 #### 4. Outliers
 
 반응변수의 관점에서 보았을 때, 회귀 모형으로부터 동떨어져 있는 값들을 Outlier라고 부른다. Residual Plot을 그렸을 때 상대적으로 높은 값을 보이는 점들이 Outlier라고 할 수 있다. 하지만 그 기준을 정하기 애매하기 때문에, 일반적으로 Studentized Residual Plot을 그려서 확인한다. Studentized Residual이 $3$보다 큰 경우 Outlier일 가능성이 높다.
 
-![FIGURE 3.12](/ISLR/FIGURE_3.12.png)
+{{<figure src="/islr_fig_3.12.png" width="600" height="400">}}
 
 #### 5. High Leverage Points
 
@@ -190,7 +190,7 @@ $$h_i=\frac{1}{n}+\frac{\left(X_i-\bar{X}\right)^2}{\sum{\left(X_{i'}-\bar{X}\ri
 
 일반적으로 Leverage Statistic이 $\frac{p+1}{n}$보다 큰 경우 High Leverage Point라고 판단한다.
 
-![FIGURE 3.13](/ISLR/FIGURE_3.13.png)
+{{<figure src="/islr_fig_3.13.png" width="600" height="400">}}
 
 #### 6. Collinearity
 

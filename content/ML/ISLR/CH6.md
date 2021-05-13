@@ -1,5 +1,5 @@
 ---
-title: "CH6 Linear Model Selection and Regularization"
+title: "6. Linear Model Selection and Regularization"
 date: 2021-02-10
 TableOfContents: true
 weight: 5
@@ -70,7 +70,7 @@ $$\text{Adjusted } R^2=1-\frac{\text{RSS}/(n-d-1)}{\text{TSS}/(n-1)}$$
 
 $R^2$가 변수가 추가될 때마다 계속해서 증가하는 것과는 달리, 변수를 추가함으로 인해 $\text{RSS}$가 감소하는 정도보다 $d$가 늘어나는 정도가 더 큰 경우, 전체적인 Adjusted $R^2$의 값은 감소하게 된다. 즉, 분자에 있는 $d$로 인해 모형에 불필요한 변수가 추가되는 경우 그 값이 감소한다.
 
-![FIGURE 6.2](/ISLR/FIGURE_6.2.png)
+{{<figure src="/islr_fig_6.2.png" width="600" height="400">}}
 
 $C_p$, $\text{AIC}$, $\text{BIC}$는 값이 작을 수록, Adjusted $R^2$는 클 수록 더 좋은 모형임을 의미한다. 일반적으로는 $R^2$를 제외한 나머지 지표들을 위주로 사용한다.
 
@@ -78,7 +78,7 @@ $C_p$, $\text{AIC}$, $\text{BIC}$는 값이 작을 수록, Adjusted $R^2$는 클
 
 앞서 언급하였듯이, 각 모형에 대한 Validation Set Error나 Cross-Validation Error를 기준으로 우수한 모형을 선정하는 방법이다. Test Error를 직접 추정할 수 있고, 모형에 대해 필요한 가정의 수가 상대적으로 적다는 점에서 장점을 갖는다. 또한 모형의 자유도를 파악하기 어렵거나, $\sigma^2$을 추정하기 어려운 경우에도 사용할 수 있다.
 
-![FIGURE 6.3](/ISLR/FIGURE_6.3.png)
+{{<figure src="/islr_fig_6.3.png" width="600" height="400">}}
 
 이러한 방법을 사용할 때는 일반적으로 One-Standard-Error Rule을 적용한다. 위 그림에서 확인할 수 있듯이, Validation Set Error와 Cross-Validation Error는 변수의 갯수가 6개일 때 최소가 된다. 그러나 사실상 3개에서 11개까지는 변수의 갯수에 따른 Error의 차이가 거의 없다고 볼 수 있다. 따라서 Test $\text{MSE}$의 추정치가 Test $\text{MSE}$ 추정치의 최솟값 $\pm$ 최소 추정치의 Standard Error 사이에 있는 모형 중 변수의 갯수가 가장 적은 모형을 선택한다. 즉, One-Standard-Error Rule은 모형의 성능이 비슷한 경우, 가장 간단한 모형을 선택하는 규칙이다.
 
@@ -92,7 +92,7 @@ $$\sum_{i=1}^n{\left(y_i-\beta_0-\sum_{j=1}^p{\beta_jx_{ij}}\right)^2}+\lambda\s
 
 Ridge Regression은 LSE와 유사한 방식으로 회귀계수를 추정하지만, 회귀계수에 대해 Penalty Term을 추가함으로써 LSE와는 다른 결과를 도출하는 방식이다. 위 식에서 볼 수 있듯이, 식에 포함되어 있는 $\text{RSS}$로 인해 기본적으로 데이터를 잘 적합하는 방향으로 회귀계수를 추정하게 된다. 하지만 $\lambda\sum_j{\beta^2_j}$의 Shrinkage Penalty를 추가함으로써 각각의 회귀계수 $\beta_j$가 $0$으로 줄어들게 하는 효과를 갖는다. 이때 $\lambda(\lambda>0)$는 Tuning Parameter라고 불리며, 이 두 가지 Term의 상대적인 영향력을 조절하는 역할을 한다. $\lambda=0$인 경우, Penalty Term은 아무런 영향력을 갖지 못하며, Ridge Regression은 LSE와 동일한 결과를 갖게 된다. 반면 $\lambda$가 커질 수록 Shrinkage Penalty의 영향력이 증가하며 회귀계수들이 $0$에 가까워지게 된다. 따라서 적절한 값의 $\lambda$를 사용하는 것이 매우 중요하다.
 
-![FIGURE 6.4](/ISLR/FIGURE_6.4.png)
+{{<figure src="/islr_fig_6.4.png" width="600" height="400">}}
 
 좌측의 그래프에서는 $\lambda$값이 커짐에 따라 회귀계수들이 점점 $0$에 가까워지는 것을 확인할 수 있다. 반면 우측의 그래프에서는 $x$축에 $\lambda$ 대신 $||\hat{\beta}^R_\lambda||_2/||\hat{\beta}||_2$를 사용하고 있다. 이때 $||\beta||_2$를 $\ell_2$ Norm이라고 하고, $||\beta||_2=\sqrt{\sum_{j=1}^p{\beta^2_j}}$로 정의한다. 따라서 $\lambda=0$인 경우에는 Ridge 회귀계수의 추정치와 LSE가 동일하므로 $1$의 값을, $\lambda=\infty$인 경우에는 모든 Ridge 회귀계수의 추정치가 $0$이 되므로 $0$의 값을 갖게 된다. 즉, $||\hat{\beta}^R_\lambda||_2/||\hat{\beta}||_2$는 Ridge 회귀계수의 추정치가 $0$으로 줄어든 정도를 의미한다고 볼 수 있다. $0$에 가까울 수록 많이 줄어든 것이므로, 그래프의 좌측으로 갈 수록 회귀계수들이 $0$에 가까워진다.
 
@@ -114,7 +114,7 @@ $$\sum_{i=1}^n{\left(y_i-\beta_0-\sum_{j=1}^p{\beta_jx_{ij}}\right)^2}+\lambda\s
 
 Lasso Regression은 $\ell_2$ Penalty 대신 $\lambda\sum_j{|\beta_j|}$의 $\ell_1$ Penalty를 사용한다. 이때 $\ell_1$ Norm은 $\sum{|\beta_j|}$로 정의된다. $\ell_1$ Penalty는 회귀계수의 추정치가 정확히 $0$이 되게 하는 효과를 갖는다. 따라서 Lasso Regression은 Best Subset Selection과 같은 Variable Selection 기능을 수행한다. 결과적으로 Lasso Regression을 사용하여 적합한 모형은 Ridge Regression에 의한 모형보다 해석하기가 수월하다. Lasso Regression 역시 적절한 $\lambda$값을 사용하는 것이 중요하다.
 
-![FIGURE 6.6](/ISLR/FIGURE_6.6.png)
+{{<figure src="/islr_fig_6.6.png" width="600" height="400">}}
 
 위 그림에서 $\lambda$가 일정 값을 넘어서면 회귀계수의 추정치가 정확히 $0$이 되는 것을 확인할 수 있다.
 
@@ -138,7 +138,7 @@ $$\underset{\beta}{\text{minimize}}\left\\{\sum_{i=1}^n{\left(y_i-\beta_0-\sum_{
 
 Ridge Regression과 달리 Lasso Regression이 회귀계수를 정확히 $0$으로 추정하게 되는 이유를 그래프를 통해 살펴보도록 하자.
 
-![FIGURE 6.7](/ISLR/FIGURE_6.7.png)
+{{<figure src="/islr_fig_6.7.png" width="600" height="400">}}
 
 Ridge Regression의 제약 조건 $\beta^2_1+\beta^2_2≤s$는 2차원에서 원의 형태를 갖는다. 반면, Lasso Regression의 조건식 $|\beta_1|+|\beta_2|≤s$는 마름모 형태이다. 마름모와 달리 원에는 Sharp Points가 존재하지 않기 때문에, $\hat{\beta}$의 타원 영역과 정확히 축 위에서 만나는 것이 불가능하다. 마름모의 경우 축 위에 모서리가 위치하고 있기 때문에, $\hat{\beta}$의 타원과 각각의 모서리에서 만나게 된다. 이러한 성질은 보다 고차원의 경우에 있어서도 동일하게 적용된다.
 
@@ -182,7 +182,7 @@ $$\beta_j=\sum_{m=1}^M{\theta_m\phi_{jm}}$$
 
 그렇다면 어떠한 점에서 $p>n$의 데이터에 기존의 방법론을 적용해서는 안되는 것일까? 아래의 그림을 통해 그 이유를 쉽게 이해할 수 있다.
 
-![FIGURE 6.22](/ISLR/FIGURE_6.22.png)
+{{<figure src="/islr_fig_6.22.png" width="600" height="400">}}
 
 일반적인 선형 회귀 모형을 생각해보자. 데이터의 갯수보다 변수의 갯수가 많은 경우에 대해 선형 회귀 모형을 적합하면 변수 간의 실제 관계와는 무관하게 항상 Overfitting된 결과를 얻게될 것이다. 오른쪽 그림에서 볼 수 있듯이, 데이터가 두 개이고 변수가 두 개인 상황에서 회귀선을 적합하게 될 경우, 주어진 데이터에 꼭 맞는 선을 얻을 수 있다. 이때 Training $\text{MSE}$는 정확하게 $0$이 된다. 하지만 좌측의 더 많은 데이터를 사용하여 적합한 회귀선과 비교할 경우, 이러한 회귀선이 상당히 Overfitting 된 것임을 확인할 수 있다.
 

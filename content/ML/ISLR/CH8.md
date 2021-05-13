@@ -18,7 +18,7 @@ Regression Tree는 다음과 같은 두 가지 단계의 과정을 거쳐 만들
 1. 독립변수 $X_1, X_2, \ldots, X_p$에 대해, Predictor Space를 서로 겹치지 않는 $J$개의 영역, $R_1, R_2, \ldots, R_J$로 구분한다.
 2. $R_j$에 속한 모든 데이터에 대해서는 동일한 방식으로 반응변수를 예측한다. 일반적으로 $R_j$에 속한 데이터들의 평균을 사용한다.
 
-![FIGURE 8.2](/ISLR/FIGURE_8.2.png)
+{{<figure src="/islr_fig_8.2.png" width="400" height="200">}}
 
 Predictor Space를 $R_1, R_2, \ldots, R_J$로 나누기 위해서는 Recursive Binary Splitting이라는 Top-Down 방식을 사용한다. 모든 데이터가 한 영역에 들어있는 상태를 시작으로 해당 영역을 $\\{X|X_j<s\\}$와 $\\{X|X_j≥s\\}$로 나누었을 때 아래와 같은 식의 $\text{RSS}$를 최소화하는 $X_j$와 $s$를 결정한다. 예를 들어, 위 그림에서는 Years라는 변수와 $4.5$라는 기준값을 가지고 전체 영역을 $R_1$과 $R_2+R_3$로 구분한 것이다.
 
