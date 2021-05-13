@@ -1,7 +1,8 @@
 ---
-title: "Classification"
+title: "CH4 Classification"
 date: 2021-02-10
 TableOfContents: true
+weight: 3
 ---
 
 4장에서는 반응변수가 범주형인 경우, 즉, Classification의 문제를 다룬다.

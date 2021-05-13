@@ -2,6 +2,7 @@
 title: "8. Tree-Based Methods"
 date: 2021-02-10
 TableOfContents: true
+weight: 7
 ---
 
 8장에서는 Tree를 기반으로 하는 방법들에 대해 다루고 있다. 각각의 방법들은 Regression과 Classification의 문제에 모두 적용 가능하다.

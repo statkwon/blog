@@ -1,7 +1,8 @@
 ---
-title: "Statistical Learning"
+title: "CH2 Statistical Learning"
 date: 2020-09-01
 TableOfContents: true
+weight: 1
 ---
 
 ## 2.1. What is Statistical Learning?

@@ -1,7 +1,8 @@
 ---
-title: "ISLR CH2"
+title: "CH3 Linear Regression"
 date: 2021-02-10
 TableOfContents: true
+weight: 2
 ---
 
 ## 3.1. Simple Linear Regression

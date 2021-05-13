@@ -1,7 +1,8 @@
 ---
-title: "Linear Model Selection and Regularization"
+title: "CH6 Linear Model Selection and Regularization"
 date: 2021-02-10
 TableOfContents: true
+weight: 5
 ---
 
 선형 모형은 많은 전제조건을 필요로 하지만, 추론 영역에서 갖는 강점으로 인해 실생활의 문제들을 푸는데 있어 비선형 모형에 대해 경쟁력을 가지고 있다. 6장에서는 Method of Least Squares를 변형하여 선형 모형의 성능을 조금 더 개선할 수 있는 방법들에 대해 다루고 있다. 이러한 방법들은 예측 정확도와 모형의 설명력을 높이는데 기여할 수 있다.

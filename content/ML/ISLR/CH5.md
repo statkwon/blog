@@ -1,7 +1,8 @@
 ---
-title: "Resampling Methods"
+title: "CH5 Resampling Methods"
 date: 2021-02-10
 TableOfContents: true
+weight: 4
 ---
 
 Resampling Methods는 Training Data로부터 반복적으로 표본을 추출하고, 추출한 표본을 사용하여 여러 번 모형을 적합하여 하나의 모형을 적합할 때는 얻을 수 없는 정보를 얻기 위해 사용하는 방법이다. 5장에서는 가장 흔히 사용되는 방식인 Cross-Validation과 Bootstrap에 대한 내용을 다룬다.
