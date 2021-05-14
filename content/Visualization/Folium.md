@@ -1,6 +1,6 @@
 ---
-title: "4. Folium"
-date: 2021-02-11T17:30:49+09:00
+title: "Folium"
+date: 2021-02-11
 draft: true
 weight: 4
 TableOfContents: true

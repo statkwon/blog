@@ -1,7 +1,6 @@
 ---
-title: "3. Bokeh"
-date: 2021-02-11T17:29:52+09:00
-draft: false
+title: "Bokeh"
+date: 2021-02-11
 weight: 3
 TableOfContents: true
 ---
