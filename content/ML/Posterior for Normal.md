@@ -1,5 +1,6 @@
 ---
 title: "Posterior for Normal"
+draft: true
 ---
 
 $p(\theta, \sigma^2|y_1, \ldots, y_n)=p(\theta|\sigma^2, y_1, \ldots, y_n)p(\sigma^2|y_1, \ldots, y_n)$
