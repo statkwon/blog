@@ -1,7 +1,6 @@
 ---
 title: "Decision Theory"
 weight: 1
-comments: true
 ---
 
 Let $\mathbf{X}$ be a random vector and $Y$ be a random variable. We want to make a prediction of $Y$ at any point $\mathbf{X}=\mathbf{x}$. Let's assume that we know $f_{\mathbf{X}, Y}(\mathbf{x}, y)$ the joint distribution of $\mathbf{X}$ and $Y$. How can we make the 'best' prediction of $Y$?
