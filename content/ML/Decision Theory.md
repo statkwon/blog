@@ -63,3 +63,9 @@ $\underset{f}{\text{argmin}}\\,I_{Y_1\neq f(X)}f_{Y_1\vert X}(y_1\vert x)+\cdots
 **$k$-NN Method**
 
 If we know the true distribution of $f_{X, Y}(x, y)$, we can easily predict qualitative $Y$ as $\text{E}[Y|X=x]$ and quantitative $Y$ as $\underset{k}{\text{argmax}}\\,f_{Y_k\vert X}(y_k\vert x)$. However, actually we don't know the exact form of this joint distribution. One might think that $k$-NN regressor and classifier could be the best approximations for these.
+
+---
+
+**Reference**
+
+1. Elements of Statistical Learning
