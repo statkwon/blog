@@ -1,7 +1,6 @@
 ---
 title: "Bayesian Statistics"
 date: 2021-02-10
-TableOfContents: true
 ---
 
 ## 1.1. Introduction

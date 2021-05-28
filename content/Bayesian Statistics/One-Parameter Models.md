@@ -2,7 +2,6 @@
 title: "One-parameter models"
 date: 2021-02-10
 TableOfContents: true
-draft: true
 ---
 
 ## 2.1. The Binomial Model
