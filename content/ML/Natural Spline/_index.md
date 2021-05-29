@@ -12,7 +12,7 @@ Natural Cubic Spline is the most common one.
 
 $N_1(X)=1, \quad N_2(X)=X, \quad N_{k+2}(X)=d_k(X)-d_{K-1}(X)$
 
-$d_k(X)=\dfrac{(X-\xi_k)_+^3-(X-\xi_K)_+^3}{\xi_k-\xi_K}$
+$d_k(X)=\dfrac{(X-\xi_k)\_+^3-(X-\xi_K)_+^3}{\xi_k-\xi_K}$
 
 ---
 

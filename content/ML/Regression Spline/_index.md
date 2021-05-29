@@ -18,18 +18,18 @@ $f(X)=\beta_1+\beta_2X\cdots+\beta_{M+1}X^M+\beta_{M+2}(X-\xi_1)_+^M+\cdots+\bet
 
 We will make a proof for the case when $M=3$ and $K=2$.
 
-$f(X)=\beta_1+\beta_2X+\beta_3X^2+\beta_4X^3+\beta_5(X-\xi_1)_+^3+\beta_6(X-\xi_2)_+^3$
+$f(X)=\beta_1+\beta_2X+\beta_3X^2+\beta_4X^3+\beta_5(X-\xi_1)_+^3+\beta_6(X-\xi_2)\_+^3$
 
 We will show the continuity of $f(X)$, $f'(X)$, $f''(X)$ at the knots $\xi_1$, $\xi_2$ ($\xi_1<\xi_2$).
 
 1\) Continuity of $f(X)$
 
 $\begin{aligned}
-f(\xi_1-h)&=\beta_1+\beta_2(\xi_1-h)+\beta_3(\xi_1-h)^2+\beta_4(\xi_1-h)^3+\beta_5(\xi_1-h-\xi_1)_+^3+\beta_6(\xi_1-h-\xi_2)_+^3 \\\\
+f(\xi_1-h)&=\beta_1+\beta_2(\xi_1-h)+\beta_3(\xi_1-h)^2+\beta_4(\xi_1-h)^3+\beta_5(\xi_1-h-\xi_1)_+^3+\beta_6(\xi_1-h-\xi_2)\_+^3 \\\\
 &=\beta_1+\beta_2(\xi_1-h)+\beta_3(\xi_1-h)^2+\beta_4(\xi_1-h)^3
 \end{aligned}$
 
-$f(\xi_1+h)=\beta_1+\beta_2(\xi_1+h)+\beta_3(\xi_1+h)^2+\beta_4(\xi_1+h)^3+\beta_5(\xi_1+h-\xi_1)_+^3+\beta_6(\xi_1+h-\xi_2)_+^3$
+$f(\xi_1+h)=\beta_1+\beta_2(\xi_1+h)+\beta_3(\xi_1+h)^2+\beta_4(\xi_1+h)^3+\beta_5(\xi_1+h-\xi_1)_+^3+\beta_6(\xi_1+h-\xi_2)\_+^3$
 
 $\displaystyle\lim_{h\rightarrow0}f(\xi_1-h)=\lim_{h\rightarrow0}f(\xi_1+h)=\beta_1+\beta_2\xi_1+\beta_3\xi_1^2+\beta_4\xi_1^3$
 
