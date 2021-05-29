@@ -1,5 +1,6 @@
 ---
 title: "Curse of Dimensionality"
+date: 2021-02-15
 weight: 2
 ---
 
@@ -27,9 +28,11 @@ Our criteria is a median distance, so let $F_{X_{(1)}}(x)=\dfrac{1}{2}$ and solv
 
 **As dimension goes higher, the sampling density becomes sparser**
 
-Suppose that our $N$ samples are uniformly distributed in a $p$-dimensional hypercube with volume $N$. The edge length of this space will be $N^{1/p}$ and because the space is totally filled with our data, the sampling density should be proportional to this edge length. For a fixed value of $N$, this edge length becomse smaller as $p$ gets larger. So it is obvious that the data is more sparsly distributed in higher dimension.
+{{<figure src="/fig6.jpeg" width="400" height="400">}}
 
-{{<figure src="/fig6.png" width="400" height="400">}}
+As the picture($9^{1/2}=3$, $8^{1/3}=2$) above, it is evident that the sampling density is proportional to $N^{1/p}$. For a fixed value of $N$, this value becomses smaller as $p$ gets larger, which means that the data is more sparsly distributed in the higher dimension.
+
+{{<figure src="/fig7.png" width="400" height="400">}}
 
 ---
 

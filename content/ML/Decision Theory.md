@@ -1,5 +1,6 @@
 ---
 title: "Decision Theory"
+date: 2021-02-13
 weight: 1
 ---
 
