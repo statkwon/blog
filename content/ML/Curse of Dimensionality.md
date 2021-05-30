@@ -12,6 +12,8 @@ Suppose that our data are uniformly distributed in a $p$-dimensional unit hyperc
 
 {{<figure src="/fig3.png" width="400" height="400">}}
 
+---
+
 **As dimension goes higher, data gets closer to the boundary of the input space**
 
 {{<figure src="/fig4.png" width="400" height="400">}}
@@ -25,6 +27,8 @@ $F_{X_{(1)}}(x)=1-(1-x^p)^N \quad (0≤x≤1)$
 Our criteria is a median distance, so let $F_{X_{(1)}}(x)=\dfrac{1}{2}$ and solve this equation. Finally, it gives us the formula $d(p, N)=\left(1-\dfrac{1}{2}^{1/N}\right)^{1/p}$. Now it is obvious with this formula that as dimension goes higher, our data go closer to an edge of input space. The reason that this represents a problem is that prediction is much more difficult near the edges of the training sample.
 
 {{<figure src="/fig5.png" width="400" height="400">}}
+
+---
 
 **As dimension goes higher, the sampling density becomes sparser**
 
