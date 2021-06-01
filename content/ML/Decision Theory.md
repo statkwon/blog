@@ -32,7 +32,7 @@ $\displaystyle f(x)\int f_{Y\vert X}(y\vert x)dy=\int yf_{Y\vert X}(y\vert x)dy$
 
 $\therefore f(x)=\text{E}[Y\vert X=x]$
 
-Now we know that the best prediction for $Y$ is the conditional expectation of $Y$ given $X$.
+Now we know that the best prediction for $Y$ is the conditional expectation of $Y$ given $X$, which is also called as regression function.
 
 ---
 
