@@ -55,9 +55,11 @@ Now we will get the distribution of $\hat{\sigma}^2$. First, let $\mathbf{e}=\ma
 
 $\hat{\sigma}^2=\dfrac{1}{n-p-1}\mathbf{e}^T\mathbf{e}$
 
-We will use a property of quadratic forms in MVN: If $\mathbf{X}\sim N_p(\mathbf{0}, \Sigma)$ and $\vert\Sigma\vert>0$, then $\mathbf{X}^TA\mathbf{X}\sim\chi_r^2$, if and only if $A\Sigma$ is idempotent and $\text{tr}(A\Sigma)=r$.
+We will use a property of quadratic forms. Because $\mathbf{e}\sim N(\mathbf{0}, \sigma^2(I-H))$, $\vert\sigma^2(I-H)\vert>0$, $\dfrac{1}{\sigma^2}\sigma^2(I-H)$ is idempotent and $\text{tr}(I-H)=n-p-1$, we can say $\dfrac{1}{\sigma^2}\mathbf{e}^T\mathbf{e}\sim\chi_{n-p-1}^2$. Thus,
 
-Distribution of $\hat{\sigma}^2$ can also be obtained, $(n-p-1)\hat{\sigma}^2\sim\sigma^2\chi^2_{n-p-1}$. With these results, we can get some confidence intervals for the parameters or can conduct some hypothesis tests.
+$(n-p-1)\hat{\sigma}^2\sim\sigma^2\chi^2_{n-p-1}$
+
+With these results, we can get some confidence intervals for the parameters or can conduct some hypothesis tests.
 
 ---
 
