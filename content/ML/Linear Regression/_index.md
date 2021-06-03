@@ -6,7 +6,9 @@ weight: 3
 
 **Linear Regression**
 
-Linear Regression assumes the linear form of regression function as $\text{E}[Y\vert X]=X\beta$.
+Linear Regression is a bit classical model, but still has some advantages. It's prediction performance can outperform the latest methods in some specific situations such as small data, low SNR, or sparse data. Also, it can be expanded to nonlinear models by transforming the inputs.
+
+Linear Regression assumes the linear form of regression function as $\text{E}[Y\vert X]=X\boldsymbol{\beta}$.
 
 {{<figure src="/esl_fig_3.1.png" width="300" height="200">}}
 
@@ -93,13 +95,17 @@ Nonetheless, there might be another better estimate for $\boldsymbol{\beta}$. We
 
 ---
 
-**Computation with Gram-Schmidt Process**
+**Regression by Successive Orthogonalization**
 
 {{<figure src="/esl_fig_3.4.png" width="400" height="200">}}
 
-Coefficients of multiple linear regression can be computed much easier by using Gram-Schmidt process.
+If all column vectors of $X$ are orthogonal to each other, it will be much easier to get coefficients of multiple linear regression. We can just project $\mathbf{y}$ onto each vector $\mathbf{x}_i$ and get $\hat{\beta}_i=\dfrac{\mathbf{y}\cdot\mathbf{z}_i}{\mathbf{z}_i\cdot\mathbf{z}_i}$, due to the fact that orthogonal inputs do not effect on each other's parameter estimates. However, orthogonal inputs are actually an impossible situation. Though, we could use this idea to make an efficient way for parameter estimation in multiple regression.
 
-Using Gram-Schmidt process, we can transform the column vectors of $X$, $\begin{bmatrix} \mathbf{1} & \mathbf{x}_1 & \cdots & \mathbf{x}_p \end{bmatrix}$ to orthogonal vectors $\begin{bmatrix} \mathbf{z}_0 & \mathbf{z}_1 & \cdots & \mathbf{z}_p \end{bmatrix}$. Then we can get the $i$th coefficient by projecting $\mathbf{y}$ onto the vector $\mathbf{z}_i$, which means $\hat{\beta}_i=\dfrac{\mathbf{y}\cdot\mathbf{z}_i}{\mathbf{z}_i\cdot\mathbf{z}_i}$.
+$\begin{bmatrix} \mathbf{x}_0 & \mathbf{x}_1 & \cdots & \mathbf{x}_p \end{bmatrix}\quad\Rightarrow\quad\begin{bmatrix} \mathbf{z}_0 & \mathbf{z}_1 & \cdots & \mathbf{z}_p \end{bmatrix}$
+
+By using Gram-Schmidt process, we can transform the column vectors of $X$ to the orthogonal vectors. Then, $\hat{\beta}_p$ can be calculated by projecting $\mathbf{y}$ onto $\mathbf{z}_p$, which can be written as $\hat{\beta}_p=\dfrac{\mathbf{y}\cdot\mathbf{z}_p}{\mathbf{z}_p\cdot\mathbf{z}_p}$. If we change the order of the column vectors of $X$, this can be applied to any coefficient $\hat{\beta}_i$. Now we can state that $\hat{\beta}_i$ represents the additional contribution of $\mathbf{x}_j$ on $\mathbf{y}$, after $\mathbf{x}_j$ has been adjusted for $\mathbf{x}_0, \mathbf{x}_1, \ldots, \mathbf{x}\_{j-1}, \mathbf{x}\_{j+1}, \ldots, \mathbf{x}_p$.
+
+This can be proved with calculation via $QR$-decomposition of $X$.
 
 $\begin{aligned}
 X&=\begin{bmatrix} \mathbf{1} & \mathbf{x}_1 & \cdots & \mathbf{x}_p \end{bmatrix} \\\\
@@ -115,8 +121,6 @@ $\begin{bmatrix} \Vert\mathbf{z}_0\Vert & \dfrac{\mathbf{x}_1\cdot\mathbf{z}_0}{
 $R$ is an upper-triangular matrix, so we just use the back-substitution to solve the equation above. For example, first we can get $\hat{\beta}_p=\dfrac{\mathbf{y}_p\cdot\mathbf{z}_p}{\Vert\mathbf{z}_p\Vert^2}$, then $\hat{\beta}\_{p-1}=\dfrac{\mathbf{y}\cdot\mathbf{z}\_{p-1}}{\Vert\mathbf{z}\_{p-1}\Vert^2}-\hat{\beta}_p\dfrac{\mathbf{x}_p\cdot\mathbf{z}\_{p-1}}{\Vert\mathbf{z}\_{p-1}\Vert^2}$. Repeating this process, we can obtain $\hat{\boldsymbol{\beta}}$.
 
 ---
-
-Linear Regression is a bit classical model, but still has some advantages. It's prediction performance can outperform the latest methods in some specific situations such as small data, low SNR, or sparse data. Also, it can be expanded to nonlinear models by transforming the inputs.
 
 **Reference**
 
