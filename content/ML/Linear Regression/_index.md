@@ -118,7 +118,7 @@ Now we solve the new equation $\mathbf{y}=QR\boldsymbol{\beta}$, rather than the
 
 $\begin{bmatrix} \Vert\mathbf{z}_0\Vert & \dfrac{\mathbf{x}_1\cdot\mathbf{z}_0}{\Vert\mathbf{z}_0\Vert} & \cdots & \dfrac{\mathbf{x}_p\cdot\mathbf{z}_0}{\Vert\mathbf{z}_0\Vert} \\\\ 0 & \Vert\mathbf{z}_1\Vert & \cdots & \dfrac{\mathbf{x}_p\cdot\mathbf{z}_1}{\Vert\mathbf{z}_1\Vert} \\\\ \vdots & \vdots & \ddots & \vdots \\\\ 0 & 0 & \cdots & \Vert\mathbf{z}_p\Vert \end{bmatrix}\begin{bmatrix} \beta_0 \\\\ \beta_1 \\\\ \vdots \\\\ \beta_p \end{bmatrix}=\begin{bmatrix} \dfrac{\mathbf{y}\cdot\mathbf{z}_0}{\Vert\mathbf{z}_0\Vert} \\\\ \dfrac{\mathbf{y}\cdot\mathbf{z}_1}{\Vert\mathbf{z}_1\Vert} \\\\ \vdots \\\\ \dfrac{\mathbf{y}\cdot\mathbf{z}_p}{\Vert\mathbf{z}_p\Vert} \end{bmatrix}$
 
-$R$ is an upper-triangular matrix, so we just use the back-substitution to solve the equation above. For example, first we can get $\hat{\beta}_p=\dfrac{\mathbf{y}_p\cdot\mathbf{z}_p}{\Vert\mathbf{z}_p\Vert^2}$, then $\hat{\beta}\_{p-1}=\dfrac{\mathbf{y}\cdot\mathbf{z}\_{p-1}}{\Vert\mathbf{z}\_{p-1}\Vert^2}-\hat{\beta}_p\dfrac{\mathbf{x}_p\cdot\mathbf{z}\_{p-1}}{\Vert\mathbf{z}\_{p-1}\Vert^2}$. Repeating this process, we can obtain $\hat{\boldsymbol{\beta}}$.
+$R$ is an upper-triangular matrix, so we just use the back-substitution to solve the equation above. For example, first we can get $\hat{\beta}_p=\dfrac{\mathbf{y}_p\cdot\mathbf{z}_p}{\Vert\mathbf{z}_p\Vert^2}$, then $\hat{\beta}\_{p-1}=\dfrac{\mathbf{y}\cdot\mathbf{z}\_{p-1}}{\Vert\mathbf{z}\_{p-1}\Vert^2}-\hat{\beta}_p\dfrac{\mathbf{x}_p\cdot\mathbf{z}\_{p-1}}{\Vert\mathbf{z}\_{p-1}\Vert^2}$. Repeating this process, we can obtain $\hat{\boldsymbol{\beta}}$ without calculating the inverse.
 
 ---
 
