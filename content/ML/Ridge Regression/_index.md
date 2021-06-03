@@ -1,5 +1,7 @@
 ---
 title: "Ridge Regression"
+date: 2021-02-25
+weight: 5
 ---
 
 Subset selection methods can sometimes cause high variance due to its discrete characteristic. As an alternative, shrinkage methods such as ridge regression can be used.

@@ -101,6 +101,19 @@ Coefficients of multiple linear regression can be computed much easier by using 
 
 Using Gram-Schmidt process, we can transform the column vectors of $X$, $\begin{bmatrix} \mathbf{1} & \mathbf{x}_1 & \cdots & \mathbf{x}_p \end{bmatrix}$ to orthogonal vectors $\begin{bmatrix} \mathbf{z}_0 & \mathbf{z}_1 & \cdots & \mathbf{z}_p \end{bmatrix}$. Then we can get the $i$th coefficient by projecting $\mathbf{y}$ onto the vector $\mathbf{z}_i$, which means $\hat{\beta}_i=\dfrac{\mathbf{y}\cdot\mathbf{z}_i}{\mathbf{z}_i\cdot\mathbf{z}_i}$.
 
+$\begin{aligned}
+X&=\begin{bmatrix} \mathbf{1} & \mathbf{x}_1 & \cdots & \mathbf{x}_p \end{bmatrix} \\\\
+&=\begin{bmatrix} \mathbf{z}_0 & \mathbf{z}_1 & \cdots & \mathbf{z}_p \end{bmatrix}\begin{bmatrix} 1 & \dfrac{\mathbf{x}_1\cdot\mathbf{z}_0}{\mathbf{z}_0\cdot\mathbf{z}_0} & \cdots & \dfrac{\mathbf{x}_p\cdot\mathbf{z}_0}{\mathbf{z}_0\cdot\mathbf{z}_0} \\\\ 0 & 1 & \cdots & \dfrac{\mathbf{x}_1\cdot\mathbf{z}_1}{\mathbf{z}_1\cdot\mathbf{z}_1} \\\\ \vdots & \vdots & \ddots & \vdots \\\\ 0 & 0 & \cdots & 1 \end{bmatrix} \\\\
+&=\begin{bmatrix} \dfrac{\mathbf{z}_0}{\Vert\mathbf{z}_0\Vert} & \dfrac{\mathbf{z}_1}{\Vert\mathbf{z}_1\Vert} & \cdots & \dfrac{\mathbf{z}_p}{\Vert\mathbf{z}_p\Vert} \end{bmatrix}\begin{bmatrix} \Vert\mathbf{z}_0\Vert & \dfrac{\mathbf{x}_1\cdot\mathbf{z}_0}{\Vert\mathbf{z}_0\Vert} & \cdots & \dfrac{\mathbf{x}_p\cdot\mathbf{z}_0}{\Vert\mathbf{z}_0\Vert} \\\\ 0 & \Vert\mathbf{z}_1\Vert & \cdots & \dfrac{\mathbf{x}_p\cdot\mathbf{z}_1}{\Vert\mathbf{z}_1\Vert} \\\\ \vdots & \vdots & \ddots & \vdots \\\\ 0 & 0 & \cdots & \Vert\mathbf{z}_p\Vert \end{bmatrix} \\\\
+&=QR
+\end{aligned}$
+
+Now we solve the new equation $\mathbf{y}=QR\boldsymbol{\beta}$, rather than the original one. Because $Q$ is an orthogonal matrix, we can write as $R\boldsymbol{\beta}=Q^T\mathbf{y}$.
+
+$\begin{bmatrix} \Vert\mathbf{z}_0\Vert & \dfrac{\mathbf{x}_1\cdot\mathbf{z}_0}{\Vert\mathbf{z}_0\Vert} & \cdots & \dfrac{\mathbf{x}_p\cdot\mathbf{z}_0}{\Vert\mathbf{z}_0\Vert} \\\\ 0 & \Vert\mathbf{z}_1\Vert & \cdots & \dfrac{\mathbf{x}_p\cdot\mathbf{z}_1}{\Vert\mathbf{z}_1\Vert} \\\\ \vdots & \vdots & \ddots & \vdots \\\\ 0 & 0 & \cdots & \Vert\mathbf{z}_p\Vert \end{bmatrix}\begin{bmatrix} \beta_0 \\\\ \beta_1 \\\\ \vdots \\\\ \beta_p \end{bmatrix}=\begin{bmatrix} \dfrac{\mathbf{y}\cdot\mathbf{z}_0}{\Vert\mathbf{z}_0\Vert} \\\\ \dfrac{\mathbf{y}\cdot\mathbf{z}_1}{\Vert\mathbf{z}_1\Vert} \\\\ \vdots \\\\ \dfrac{\mathbf{y}\cdot\mathbf{z}_p}{\Vert\mathbf{z}_p\Vert} \end{bmatrix}$
+
+$R$ is an upper-triangular matrix, so we just use the back-substitution to solve the equation above. For example, first we can get $\hat{\beta}_p=\dfrac{\mathbf{y}_p\cdot\mathbf{z}_p}{\Vert\mathbf{z}_p\Vert^2}$, then $\hat{\beta}\_{p-1}=\dfrac{\mathbf{y}\cdot\mathbf{z}\_{p-1}}{\Vert\mathbf{z}\_{p-1}\Vert^2}-\hat{\beta}_p\dfrac{\mathbf{x}_p\cdot\mathbf{z}\_{p-1}}{\Vert\mathbf{z}\_{p-1}\Vert^2}$. Repeating this process, we can obtain $\hat{\boldsymbol{\beta}}$.
+
 ---
 
 Linear Regression is a bit classical model, but still has some advantages. It's prediction performance can outperform the latest methods in some specific situations such as small data, low SNR, or sparse data. Also, it can be expanded to nonlinear models by transforming the inputs.
