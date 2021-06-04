@@ -5,6 +5,8 @@ TableOfContents: true
 weight: 4
 ---
 
+As mentioned before, coefficients estimated by least squares method can be modified to exchange a little bias for a larger reduction in variance. Subset selection method not only makes it possible to enhance the prediction accuracy in this sense, but also yields more interpretable model.
+
 **Best-Subset Selection**
 
 {{<figure src="/esl_fig_3.5.png" width="500" height="200">}}
