@@ -1,6 +1,6 @@
 ---
 title: "Gram-Schmidt Process"
-date: 2021-03-08
+date: 2021-02-20
 ---
 
 **Gram-Schmidt Process**

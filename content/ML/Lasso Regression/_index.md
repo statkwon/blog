@@ -2,6 +2,7 @@
 title: "Lasso Regression"
 date: 2021-02-28
 weight: 6
+draft: true
 ---
 
 Lasso regression is also a shrinkage method, but differs from ridge regression in that it uses $l_1$ penalty term.
