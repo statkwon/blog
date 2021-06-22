@@ -17,9 +17,7 @@ If we let $W=D^{-1/2}U^T$, this satisfies the all conditions above. Thus, if we 
 
 $\mathbf{Y}=D^{-1/2}U^T\mathbf{X}$
 
----
-
-This can also be applied to a data matrix. Suppose $X$ is a data matrix with zero sample mean vector. We will transform the sample covariance matrix of $X$ to an identity matrix as before.
+We can think $U$ as a rotation matrix and $D$ as a scaling matrix.
 
 ---
 
