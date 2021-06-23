@@ -35,18 +35,6 @@ If we let $\mathbf{X}^*=D^{-1/2}U^T(\mathbf{X}-\bar{\mathbf{X}}_k)$, then this c
 
 ---
 
-**Dimension Reduction Effect**
-
-Now we will think about the geometrical aspects. In this point of view, we can see that the LDA results in a huge decrease of a dimension of the input space.
-
-{{<figure src="/fig12.jpeg" width="800">}}
-
-{{<figure src="/fig13.jpeg" width="300">}}
-
-{{<figure src="/fig14.jpeg" width="600">}}
-
----
-
 **Quadratic Discriminant Analysis**
 
 A similar method without the equality assumption of $\Sigma_k$ is called a quadratic discriminant analysis. Due to this weak assumption, the convenient cancellation in LDA does not occur in QDA. Similar to LDA, we can get a quadratic discriminant function as
