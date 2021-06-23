@@ -41,6 +41,10 @@ Now we will think about the geometrical aspects. In this point of view, we can s
 
 {{<figure src="/fig12.jpeg" width="800">}}
 
+{{<figure src="/fig13.jpeg" width="300">}}
+
+{{<figure src="/fig14.jpeg" width="600">}}
+
 ---
 
 **Quadratic Discriminant Analysis**
