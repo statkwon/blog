@@ -9,6 +9,9 @@ menu: main
 - 연세대학교에서 응용통계학을 전공하였습니다. (2019.08 ~ 2021.02)
 - 연세대학교 응용통계학과 공식 인증 통계 및 데이터사이언스 학회 ESC에서 활동하였습니다. (2019.09 ~ 2020.08) || [Github Repo](https://github.com/YonseiESC/ESC-19FALL), [Github Repo 2](https://github.com/YonseiESC/ESC-20SPRING), [Github Repo 3](https://github.com/statkwon/ESC-Visualization)
 
+## Career
+- EY한영회계법인 컨설팅본부 DnA(Data&Analytics)팀 인턴 (2021.06~2021.09) || 스마일게이트 데이터 통합 컨설팅
+
 ## Projects
 - 서울시 수소차 충전소 입지 선정 (2020.03 ~ 2020.06) || [Github Repo](https://github.com/statkwon/rhino), [RHINO Project](https://rhinoblog.netlify.app/)
 - [2020 빅콘테스트] KBO 정규시즌 팀별 승률, 타율 및 방어율(평균자책점) 예측 (2020.07 ~ 2020.11, 본선 진출) || [Github Repo](https://github.com/EunseoKang0722/ESC_Summer_Team5)
