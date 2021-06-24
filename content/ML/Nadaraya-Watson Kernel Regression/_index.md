@@ -1,5 +1,7 @@
 ---
 title: "Nadaraya-Watson Kernel Regression"
+date: 2021-03-17
+weight: 12
 ---
 
 $$K_\lambda(x_0, x)=D\left(\dfrac{\vert x-x_0\vert}{h_\lambda(x_0)}\right)$$

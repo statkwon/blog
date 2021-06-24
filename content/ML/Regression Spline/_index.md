@@ -1,5 +1,7 @@
 ---
 title: "Regression Spline"
+date: 2021-03-10
+weight: 9
 ---
 
 We can obtain regression splines by adding a continuity constraint to piecewise polynomials.

@@ -1,5 +1,7 @@
 ---
 title: "Local Regression"
+date: 2021-03-20
+weight: 13
 ---
 
 Nadaraya-Watson kernel regression usually suffers from a boundary issue and local regression can be the alternative.

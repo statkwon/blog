@@ -33,6 +33,18 @@ $\hat{\delta}_k(\mathbf{X})=-\dfrac{1}{2}[U^T(\mathbf{X}-\bar{\mathbf{X}}_k)]^TD
 
 If we let $\mathbf{X}^*=D^{-1/2}U^T(\mathbf{X}-\bar{\mathbf{X}}_k)$, then this can be viewed as a whitening transformation for $\mathbf{X}-\bar{\mathbf{X}}_k$. This makes the mahalonbis distance to be same as euclidean distance, because whitening transformation will get rid of the correlation between axes. Therefore, we can say that the LDA is a process to sphere the centered data respect to the common covariance estimate $\hat{\Sigma}$ and then classify $\mathbf{X}$ to the closes class centroid in the transformed space, modulo the effect of the class prior probabilities $\pi_k$.
 
+{{<figure src="/fig12.jpeg" width="400">}}
+
+Here comes an interesting fact that the $K$ centroids in $p$-dimensional input space always lie in an affine subspace of dimension equal to or less than $K-1$. Therefore when we get the distance between the data point and the centroids, we don't have to consider about the perpendicular distances. We might as well project the $\mathbf{X}^*$ onto this centroid-spanning subspace. This can be regarded as a dimension reduction at least from $p$ to $K-1$.
+
+---
+
+**Reduced-Rank Linear Discriminant Analysis**
+
+{{<figure src="/fig13.jpeg" width="400">}}
+
+When the number of the centroids is much larger than $3$, the dimension reduction to $K-1$ is meaningless. In such a case, we can find an optimal dimension for LDA in some sense. 
+
 ---
 
 **Quadratic Discriminant Analysis**
@@ -50,10 +62,6 @@ Regularized discriminant analysis is a compromise between LDA and QDA, which all
 $\hat{\Sigma}_k(\alpha)=\alpha\hat{\Sigma}_k+(1-\alpha)\hat{\Sigma}$,
 
 where $\hat{\Sigma}$ is the pooled covariance matrix as used in LDA. $\alpha$ can be selected by cross-validation.
-
----
-
-Discriminant analysis techniques are quite useful despite the strict assumptions because the decision boundaries can be estimated with much lower variance than more exotic alternatives.
 
 ---
 
