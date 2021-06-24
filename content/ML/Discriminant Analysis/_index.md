@@ -31,7 +31,7 @@ The computation for LDA, calculating the inverse of $\hat{\Sigma}$, can be simpl
 
 $\hat{\delta}_k(\mathbf{X})=-\dfrac{1}{2}[U^T(\mathbf{X}-\bar{\mathbf{X}}_k)]^TD^{-1}[U^T(\mathbf{X}-\bar{\mathbf{X}}_k)]+\log{\pi_k}$.
 
-If we let $\mathbf{X}^*=D^{-1/2}U^T(\mathbf{X}-\bar{\mathbf{X}}_k)$, then this can be viewed as a whitening transformation for $\mathbf{X}-\bar{\mathbf{X}}_k$. Therefore, we can say that the LDA is a process to sphere the centered data respect to the common covariance estimate $\hat{\Sigma}$ and then classify $\mathbf{X}$ to the closes class centroid in the transformed space, modulo the effect of the class prior probabilities $\pi_k$.
+If we let $\mathbf{X}^*=D^{-1/2}U^T(\mathbf{X}-\bar{\mathbf{X}}_k)$, then this can be viewed as a whitening transformation for $\mathbf{X}-\bar{\mathbf{X}}_k$. This makes the mahalonbis distance to be same as euclidean distance, because whitening transformation will get rid of the correlation between axes. Therefore, we can say that the LDA is a process to sphere the centered data respect to the common covariance estimate $\hat{\Sigma}$ and then classify $\mathbf{X}$ to the closes class centroid in the transformed space, modulo the effect of the class prior probabilities $\pi_k$.
 
 ---
 
