@@ -4,9 +4,11 @@ date: 2021-03-20
 weight: 13
 ---
 
-Nadaraya-Watson kernel regression usually suffers from a boundary issue and local regression can be the alternative.
+Boundary issues of Nadaraya-Watson kernel regression can be solved by fitting a straight line rather than constants locally.
 
 **Local Linear Regression**
+
+
 
 $\hat{f}(x_0)=\hat{\alpha}(x_0)+\hat{\beta}(x_0)x_0$
 
