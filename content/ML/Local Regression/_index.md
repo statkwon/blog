@@ -4,43 +4,42 @@ date: 2021-03-20
 weight: 13
 ---
 
-Boundary issues of Nadaraya-Watson kernel regression can be solved by fitting a straight line rather than constants locally.
+Boundary issues of Nadaraya-Watson kernel regression can be solved by fitting a straight line rather than constants locally. This is the concept of local regression which fits a seperate weighted least squares at each target point $\mathbf{X}_0$. For convenience, let's consider the one-dimensional input space from now on.
 
 **Local Linear Regression**
 
+$\displaystyle\underset{\boldsymbol{\beta}(x_0)}{\text{argmin}}(\mathbf{y}-X\boldsymbol{\beta}(x_0))^TW(x_0)(\mathbf{y}-X\boldsymbol{\beta}(x_0))$
 
-
-$\hat{f}(x_0)=\hat{\alpha}(x_0)+\hat{\beta}(x_0)x_0$
-
-We can get this local linear estimate by solving the problem below.
-
-$\displaystyle\underset{\alpha(x_0), \beta(x_0)}{\text{argmin}}\sum_{i=1}^nK_\lambda(x_0, x_i)\left\\{y_i-\alpha(x_0)-\beta(x_0)x_i\right\\}^2$
-
-This model uses the weighted observations in the neighborhood of $x_0$ and fit a regression line with them. This can be regraded as solving a weighted least square problem. Thus we can write $\hat{f}(x_0)$ as
+The coefficients of local linear regression can be obtained by finding a optimal solution of the problem above, where $W$ is a diagonal matrix whose $i$th diagonal elements are $K_\lambda(x_0, x_i)$. It can be done by the same way as in the linear regression.
 
 $\begin{aligned}
-\hat{f}(x_0)&=\mathbf{b}(x_0)^T(B^TW(x_0)B)^{-1}B^TW(x_0)y \\\\
-&=\mathbf{l}(x_0)^Ty \\\\
+\dfrac{\partial}{\partial\boldsymbol{\beta}(x_0)}(\mathbf{y}-X\boldsymbol{\beta}(x_0))^TW(x_0)(\mathbf{y}-X\boldsymbol{\beta}(x_0))&=\dfrac{\partial}{\partial\boldsymbol{\beta}(x_0)}(\mathbf{y}^TW(x_0)\mathbf{y}-\boldsymbol{\beta}^TX^TW(x_0)\mathbf{y}-\mathbf{y}^TW(x_0)X\boldsymbol{\beta}+\boldsymbol{\beta}^TX^TW(x_0)X\boldsymbol{\beta}) \\\\
+&=-2X^TW(x_0)\mathbf{y}+2X^TW(x_0)X\boldsymbol{\beta}
+\end{aligned}$
+
+Without a doubt, $\hat{\boldsymbol{\beta}}(x_0)=(X^TW(x_0)X)^{-1}X^TW(x_0)\mathbf{y}$ is the solution. Now we can get $\hat{f}(x_0)$ as below.
+
+$\begin{aligned}
+\hat{f}(x_0)&=\mathbf{x}\_0^T(X^TW(x_0)X)^{-1}X^TW(x_0)\mathbf{y} \\\\
+&=\mathbf{l}(x_0)^T\mathbf{y} \\\\
 &=\sum_{i=1}^nl_i(x_0)y_i
 \end{aligned}$
 
-where $\mathbf{b}(x)=\begin{bmatrix} 1 \\\\ x \end{bmatrix}$, $B=\begin{bmatrix} 1 & x_1 \\\\ 1 & x_2 \\\\ \vdots & \vdots \\\\ 1 & x_n \end{bmatrix}$ and $W=\begin{bmatrix} K_\lambda(x_0, x_1) & 0 & \cdots & 0 \\\\ 0 & K_\lambda(x_0, x_2) & \cdots & 0 \\\\ \vdots & \vdots & \ddots & \vdots \\\\ 0 & 0 & \cdots & K_\lambda(x_0, x_n) \end{bmatrix}$.
-
-Sometimes we call the $l_i(x_0)$ as equivalent kernel.
-
-Local linear regression has its advantage on the boundary due to the fact that it can reduce the first-order bias automatically. We will prove this.
+where $\mathbf{x}_0=\begin{bmatrix} 1 \\\\ x_0 \end{bmatrix}$. Sometimes we call $l_i(x_0)$ as equivalent kernel.
 
 ---
 
+Local linear regression can be the alternative of Nadaraya-Watson kernel regression because it automatically reduces the bias to first order. Below is the proof for this property.
+
 1\) $\displaystyle\sum_{i=1}^nl_i(x_0)=1$, $\displaystyle\sum_{i=1}^nl_i(x_0)x_i=x_0$
 
-We knot that $\displaystyle\mathbf{b}(x_0)^T(B^TW(x_0)B)^{-1}B^TW(x_0)y=\sum_{i=1}^nl_i(x_0)y_i$, and let $\mathbf{v}_j=\begin{bmatrix} x_1^j & x_2^j & \cdots & x_n^j \end{bmatrix}^T$.
+We've already showed that $\displaystyle\mathbf{x}\_0^T(X^TW(x_0)X)^{-1}X^TW(x_0)\mathbf{y}=\sum_{i=1}^nl_i(x_0)y_i$. Now let $\mathbf{v}_j=\begin{bmatrix} x_1^j & x_2^j & \cdots & x_n^j \end{bmatrix}^T$.
 
-Then we can show that $\displaystyle\mathbf{b}(x_0)^T(B^TW(x_0)B)^{-1}B^TW(x_0)\mathbf{v}_j=\sum\_{i=1}^nl_i(x_0)x_i^j$.
+Then we can show that $\displaystyle\mathbf{x}\_0^T(X^TW(x_0)X)^{-1}X^TW(x_0)\mathbf{v}_j=\sum\_{i=1}^nl_i(x_0)x_i^j$.
 
 $\begin{aligned}
-\mathbf{b}(x_0)^T(B^TW(x_0)B)^{-1}B^TW(x_0)\begin{bmatrix} \mathbf{v}_0 & \mathbf{v}_1 \end{bmatrix}&=\mathbf{b}(x_0)^T(B^TW(x_0)B)^{-1}B^TW(x_0)B \\\\
-&=\mathbf{b}(x_0)^T \\\\
+\mathbf{x}_0^T(X^TW(x_0)X)^{-1}X^TW(x_0)\begin{bmatrix} \mathbf{v}_0 & \mathbf{v}_1 \end{bmatrix}&=\mathbf{x}_0^T(X^TW(x_0)X)^{-1}X^TW(x_0)X \\\\
+&=\mathbf{x}_0^T \\\\
 &=\begin{bmatrix} 1 & x_0 \end{bmatrix}
 \end{aligned}$
 
@@ -55,7 +54,7 @@ $\begin{aligned}
 &=f(x_0)\sum_{i=1}^nl_i(x_0)+f'(x_0)\sum_{i=1}^n(x_i-x_0)l_i(x_0)+\dfrac{f''(x_0)}{2}\sum_{i=1}^n(x_i-x_0)^2l_i(x_0)+R
 \end{aligned}$
 
-We already showed that $\displaystyle\sum_{i=1}^nl_i(x_0)=1$ and $\displaystyle\sum_{i=1}^nl_i(x_0)x_i=x_0$.
+We showed that $\displaystyle\sum_{i=1}^nl_i(x_0)=1$ and $\displaystyle\sum_{i=1}^nl_i(x_0)x_i=x_0$.
 
 $\displaystyle\sum_{i=1}^n(x_i-x_0)l_i(x_0)=\sum_{i=1}^nx_il_i(x_0)-x_0\sum_{i=1}^nl_i(x_0)=0$
 
@@ -67,15 +66,11 @@ This implies that the bias of $\hat{f}(x_0)$ only depends on the second derivati
 
 **Local Polynomial Regression**
 
-$\displaystyle\hat{f}(x_0)=\hat{\alpha}(x_0)+\sum_{j=1}^d\hat{\beta}_j(x_0)x_0^j$
+The only difference between local linear regression and local polynomial regression is the maximum degree of the model. We just substitute $X$ with $\begin{bmatrix} \mathbf{1} & \mathbf{x} & \mathbf{x}^2 & \cdots & \mathbf{x}^d \end{bmatrix}$. Then the bias of $d$th-order local polynomial only depends on the $(d+1)$th derivative and the higher-order terms. We can prove this by the similar way as in the local linear.
 
-Same as above, we should solve the minimization problem.
+Usually local linear fits are useful to dramatically decrease the bias at the boundaries, while local quadratic fits tend to be most helpful in reducing bias due to curvature in the interior of the domain.
 
-$\displaystyle\underset{\alpha(x_0), \beta_j(x_0)}{\text{argmin}}\sum_{i=1}^nK_\lambda(x_0, x_i)\left\\{y_i-\alpha(x_0)-\sum_{j=1}^d\beta_j(x_0)x_i^j\right\\}^2$
-
-The bias of $d$th-order local polynomial only depends on the $(d+1)$th derivative and the higher-order terms. We can prove this by the similar way as in the local linear.
-
-As a result, local linear regression cannot control the bias related to the interior curvature. Local polynomial can be the solution, but it also increases the model variance. Therefore, we use the local polynomial with 
+The benefit of automatic kernel carpentry comes out as the dimension gets highger. A tendency of data getting closer to the boundary makes the asymmetry problem more serious, but local regression can take care of it. However, if the dimension of the input space becomes larger than three, local regression becomes less useful as the range for a neighborhood gets larger.
 
 ---
 
