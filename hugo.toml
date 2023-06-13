@@ -7,7 +7,7 @@ disqusShortname = "statkwon" # Enable Disqus comments by entering your Disqus sh
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 
 [Author] # Used in authorbox
-  name = "STATKWON"
+  name = "Noah"
   bio = "Data Scientist? Developer?"
   avatar = "img/avatar.png"
 
@@ -28,12 +28,6 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
   mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" # Specify MathJax path
   mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
   googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
-  customCSS = ["css/custom.css"] # Include custom CSS files
-  customJS = ["js/custom.js"] # Include custom JS files
-
-  # DEPRECATED PARAMS
-  subtitle = "" # Deprecated in favor of .Site.Params.logo.subtitle
-  highlightColor = "" # Deprecated in favor of .Site.Params.style.vars.highlightColor
 
 [Params.style.vars]
   highlightColor = "#e22d30" # Override highlight color
@@ -66,11 +60,3 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
   instagram = "kwon_leben"
   github = "statkwon"
   email = "statkwon96@gmail.com"
-
-# Custom social links
-[Params.widgets.search]
-  cached = false # activate cache if true
-  url = "https://google.com/search"
-  [Params.widgets.search.input]
-    name = "sitesearch"
-    pre = ""
