@@ -4,6 +4,7 @@ date: 2023-07-16
 categories:
   - "ML"
 tags:
+  - "Standardizing"
   - "Whitening"
 sidebar: false
 ---
