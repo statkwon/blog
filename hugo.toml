@@ -7,7 +7,7 @@ disqusShortname = "statkwon" # Enable Disqus comments by entering your Disqus sh
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 
 [Author] # Used in authorbox
-  name = "Noah"
+  name = "Me"
   bio = "Data Scientist? Developer?"
   avatar = "img/avatar.png"
 
