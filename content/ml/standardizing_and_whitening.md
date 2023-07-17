@@ -29,7 +29,7 @@ $\mathbf{Y}=PD^{-1/2}P^T\mathbf{X}$ (ZCA Whitening)
 
 ## Sample Data 관점
 
-Standardizing은 각 feature의 sample mean을 $0$, sample variance를 $1$이 되도록 처리하는 것 &rarr; 각 feature 별 연산이므로 feature 간 correlation에는 영향이 없음
+Standardizing은 각 feature의 sample mean을 $0$, sample variance를 $1$이 되도록 처리하는 것 &rarr; 각 feature 별 연산이므로 feature 간 correlation에는 영향이 없다.
 
 {{<figure src="/ml/whitening1.png" width="800">}}
 
