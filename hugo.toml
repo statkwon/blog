@@ -1,7 +1,7 @@
 baseURL = 'http://statkwon.github.io/'
 title = 'ML LAB'
 languageCode = 'en-us'
-paginate = "10"
+paginate = "5"
 theme = "mainroad"
 disqusShortname = "statkwon" # Enable Disqus comments by entering your Disqus shortname
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id

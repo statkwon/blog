@@ -5,19 +5,16 @@ categories:
     - "Paper Review"
 tags:
     - "XAI"
-    - "SHAP"
     - "Net Effect"
     - "Shapley Value"
 sidebar: false
 ---
 
 ## Summary
----
 
 Multiple Regression에서 다중공선성이 존재할 경우, 변수들의 상대적 중요도를 파악하기 어렵다. 이 논문에서는 협동 게임 이론의 Shapley Value Imputation을 사용하여 다중공선성이 존재할 때도 일관적인 변수 중요도를 계산할 수 있는 방법을 소개하고 있다.
 
 ## 1. Introduction
----
 
 Multicollinearity는 예측에 영향을 미치지는 않지만, 예측에 대한 변수들의 영향력을 판단할 때 방해가 된다.
 
@@ -29,7 +26,6 @@ Multicollinearity는 예측에 영향을 미치지는 않지만, 예측에 대�
 Multiple Regression의 상대적인 변수 중요도를 파악하기 위한 기존 지표로 Net Effect가 있지만, 역시 다중공선성의 영향을 받는다. 물론 상관성이 높은 변수를 제거하는 것이 해결책이 될 수 있지만, 다른 변수를 완벽하게 대체할 수 있는 변수는 없다는 점에서 모든 변수를 포함한 상태에서 각각의 중요도를 판단하는 것이 더욱 바람직하다. 따라서 Multicollinearity에 영향을 받지 않으면서 변수 중요도를 판단할 방법이 필요하고, Shapley Value Imputation이 그 해결책이 될 수 있다.
 
 ## 2. Predictor’s Contribution in Regression
----
 
 2장에서는 Multiple Regression에서 변수들의 중요도를 측정하기 위한 기존 방법론들을 소개하고 있다. 시작하기 앞서, 모든 독립 변수 및 종속 변수가 표준화된 상황을 가정한다.
 
@@ -64,7 +60,6 @@ $U_j=R^2-R_{-j}^2$, where $R_{-j}^2$ denotes $R^2$ calculated without $X_j$
 변수들 가운데 상관성이 높은 변수들이 존재할 경우, 그 정도에 따라 $X^TX$의 역행렬이 존재하지 않거나, 존재하더라도 Ill-Conditioned Matrix가 되어 회귀 계수와 Net Effect의 신뢰도가 낮아진다.
 
 ## 3. Shapley Value Imputation
----
 
 Shapley Value는 협동 게임 이론에서 협동 게임에 참여하는 선수들의 가치를 평가하기 위에 고안된 지표이다. $j$번째 선수에 대한 Shapley Value는 다음과 같다.
 
@@ -93,7 +88,6 @@ $S_j=(R_j^2-\bar{R}_1^2)/(n-1)+(\bar{R}\_{j*}^2-\bar{R}_2^2)/(n-2)+(\bar{R}\_{j*
 where $\bar{R}_{j\underset{p-1}{\underbrace{\*\cdots*}}}^2$ is a mean for all the models with $p$ regressors one of which is $X_1$ and $\bar{R}_p^2$ is a mean for all the models with any $p$ regressors.
 
 ## 4. SV Net Effects and Coefficients of Adjusted Regression
----
 
 이 논문에서는 $\text{SV}_j$를 Shapley Value Imputation을 사용해서 추정한 $j$번째 변수의 Net Effect라고 정의한다. SV Net Effect는 모든 가능한 변수 조합에 대해 평균한 값이기 때문에 일반적인 Net Effect와 달리 다중공선성에 취약하지 않다. $\text{SV}_j$는 항상 $0$보다 큰 값을 갖기 때문에, 독립 변수들의 기여도에 대한 해석으로 사용하기에 적절하다. 4장에서는 이러한 SV Net Effect를 사용하여 회귀 계수를 보정하는 방법들에 대해 소개하고 있다.
 
@@ -106,11 +100,11 @@ $\displaystyle F=\sum_j[\text{SV}_j-a_j(2\mathbf{r}-X^TX\mathbf{a})_j]^2=\sum_j(
 이때 첫 번째 방법을 사용하여 얻은 결과를 최적화 알고리즘의 초깃값 $a_j^{(0)}$으로 사용할 수 있다. 이러한 방식을 통해 보정한 회귀 계수는 다중공선성에 취약하지 않으며, 해석이 용이하다는 장점을 갖는다.
 
 ## Memo
----
 
 - SV Net Effects와 Adjusted Coefficients는 Linear Model에 한하여 사용할 수 있는 Global Interpretation 방식이다.
 
-## Reference
 ---
+
+**Reference**
 
 1. Lipovetsky, S., & Conklin, M. (2001). Analysis of regression in game theory approach. Applied Stochastic Models in Business and Industry, 17(4), 319-330.

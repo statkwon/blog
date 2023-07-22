@@ -6,17 +6,14 @@ categories:
 tags:
   - "XAI"
   - "SHAP"
-  - "Shapley Sampling Value"
 sidebar: false
 ---
 
 ## Abstract
----
 
 이 논문에서는 어떠한 종류의 Classification 또는 Regression 모형에도 적용할 수 있는 모형 해석 방법에 대해 소개한다. 이 방법은 기존의 방법들과는 달리 가능한 모든 변수 조합을 살핌으로써 변수 간 상호작용을 고려할 수 있다는 장점을 갖는다.
 
 ## 1. Introduction
----
 
 변수 간 상호작용이 존재하지 않는 Additive Regression Model에서 모든 변수가 표준화된 경우, 회귀 계수를 통해 변수들의 Global Importance를 파악할 수 있다. 반면 단일 예측값에 대한 변수들의 기여도를 알고 싶은 경우에는 다음과 같은 식의 Situational Importance를 사용할 수 있다.
 
@@ -36,7 +33,6 @@ $\begin{aligned}
 이러한 지표가 유의미하게 받아들여지기 위해서는 득점에 있어 선수들 사이의 협력은 존재하지 않는다는 가정이 필요하다. 하지만 축구 경기에서 대부분의 득점이 다른 팀원들의 도움을 통해 이루어지듯이, 많은 경우 변수 간 상호작용이 존재한다. 따라서 보다 일반적인 모형에 대해 Situational Importance를 적용하는 것은 바람직하지 않다.
 
 ## 2. Computing a Feature's Contribution
----
 
 2장에서는 Situational Importance를 수정하여 보다 일반적인 모형(Not Additive)에 적용할 수 있게 만든 방식에 대해 소개하고 있다.
 
@@ -69,7 +65,6 @@ $\begin{aligned}
 - $\forall \mathbf{x}, \mathbf{y}\in\mathcal{X}:\phi(\mathbf{x}+\mathbf{y})=\phi(\mathbf{x})+\phi(\mathbf{y})$, where $\Delta_Q(\mathbf{x}+\mathbf{y})=\Delta_Q(\mathbf{x})+\Delta_Q(\mathbf{y})$ for all $Q\subseteq S$ - Additivity across Instances
 
 ## 3. Approximation Algorithm
----
 
 $\phi_i(\mathbf{x})$의 정확한 값을 계산하는 것의 시간 복잡도는 $O(2^n)$으로, 변수의 개수가 많을 수록 실질적인 계산이 불가능하다. 3장에서는 그 값을 근사하기 위한 알고리즘에 대해 소개하고 있다.
 
@@ -115,12 +110,12 @@ $\displaystyle \hat{\phi}\_i(\mathbf{x})=\dfrac{1}{m}\sum_{j=1}^mV_j$
 {{<figure src="/paper_review/shapley_sampling_values1.png" width="700">}}
 
 ## Memo
----
 
 - Shapley Sampling Values는 Feature Independence를 가정한다.
 
-## Reference
 ---
+
+**Reference**
 
 1. Štrumbelj, E., & Kononenko, I. (2014). Explaining prediction models and individual predictions with feature contributions. Knowledge and information systems, 41(3), 647-665.
 2. Štrumbelj, E., & Kononenko, I. (2011, April). A general method for visualizing and explaining black-box regression models. In International Conference on Adaptive and Natural Computing Algorithms (pp. 21-30). Springer, Berlin, Heidelberg.

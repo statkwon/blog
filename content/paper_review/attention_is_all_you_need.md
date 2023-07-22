@@ -4,18 +4,15 @@ date: 2022-04-29
 categories:
   - "Paper Review"
 tags:
-  - "NLP"
   - "Transformer"
 sidebar: false
 ---
 
 ## 1. Introduction
----
 
 RNN 계열의 모형들은 Sequence Modeling에 큰 기여를 하였지만, Sequential한 구조로 인해 병렬 연산이 불가하여 Sequence의 길이가 길어질 수록 계산 효율성이 떨어진다는 단점을 가지고 있다. Attention Mechanism 역시 대부분의 경우 RNN 구조에 기반하기 때문에 이러한 문제로부터 자유로울 수 없다. 따라서 이 논문에서는 RNN 구조를 사용하지 않고, 오로지 Attention Mechanism으로만 구성된 Transformer라는 새로운 모형을 제안한다. Transformer는 RNN 구조를 사용하지 않기 때문에 병렬 연산이 가능하며, 번역 작업에 있어 기존의 방법론보다 짧은 시간 안에 SOTA를 달성할 수 있다.
 
 ## 3. Model Architecture
----
 
 대부분의 우수한 Neural Sequence 모형이 그러하듯이, Transformer 역시 Encoder-Decoder 구조를 따른다. 하지만 Transformer는 Encoder와 Decoder에 Self-Attention과 Position-wise Fully Connected Layer를 사용한다는 점에서 기존 모형들과 차이를 갖는다. 3장에서는 이러한 모형 구조에 대해 자세히 설명하고 있다.
 
@@ -89,7 +86,6 @@ where $\text{pos}$ is the position and $i$ is the dimension
 어떠한 Sequence에 대한 Positional Encoding은 위와 같은 식을 따른다. Positional Encoding은 $d_\text{model}$차원의 Embedding Vector와 동일한 차원을 가지므로, 두 벡터를 더하여 Encoder와 Decoder의 Input으로 사용한다.
 
 ## 4. Why Self-Attention
----
 
 Self-Attention은 다음과 같은 세 가지 항목에서 RNN 또는 CNN보다 더 높은 효율성을 갖는다.
 
@@ -100,7 +96,6 @@ Self-Attention은 다음과 같은 세 가지 항목에서 RNN 또는 CNN보다 
 {{<figure src="/paper_review/transformer4.png" width="600">}}
 
 ## 5. Training
----
 
 5장에서는 저자들이 Transformer를 학습시킬 때 사용한 여러 가지 조건에 대해 소개하고 있다. (차후에 디폴트 옵션으로 사용할 목적으로 기록)
 
@@ -115,14 +110,14 @@ Regularization:
 - Label Smoothing: $\epsilon_\text{ls}=0.1$
 
 ## 7. Conclusion
----
 
 - Transformer는 RNN, CNN 구조를 사용하지 않는 최초의 Sequence Transduction 모형이다.
 - WMT 2014 English-to-German과 WMT 2014 English-to-French에서 SOTA를 달성
 - Transformer를 Image, Audio, Video 데이터에도 적용할 수 있도록 확장하는 것을 추후 목표로 한다.
 
-## Reference
 ---
+
+**Reference**
 
 1. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., ... & Polosukhin, I. (2017). Attention is all you need. Advances in neural information processing systems, 30.
 2. [https://wikidocs.net/31379](https://wikidocs.net/31379)

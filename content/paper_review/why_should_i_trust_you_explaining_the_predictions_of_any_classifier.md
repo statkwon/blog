@@ -10,12 +10,10 @@ sidebar: false
 ---
 
 ## Abstract
----
 
 이 논문에서는 예측한 데이터 주변에서 해석 가능한 모형을 적합함으로써 임의의 Classifier의 예측 결과를 해석하는 방법(LIME)과 Submodular Optimization을 통해 대표적인 개별 데이터를 제시하는 방법을 제안한다.
 
 ## 1. Introduction
----
 
 “사용자가 모형 자체나 개별 예측 결과를 믿지 않는다면, 그것을 사용하지 않을 것이다”
 
@@ -29,7 +27,6 @@ sidebar: false
 - SP-LIME: Submodular Optimizatoin을 통해 주목해야 할 데이터를 선택하는 방법
 
 ## 2. The Case for Explanations
----
 
 {{<figure src="/paper_review/lime1.png" width="600">}}
 
@@ -49,7 +46,6 @@ sidebar: false
 - Global Perspective: 사용자가 개별 데이터에 대한 해석 뿐만 아니라, 모형 자체를 신뢰하기 위해서는 거시적인 관점을 제시하는 것 역시 중요함
 
 ## 3. Local Interpretable Model-Agnostic Explanations
----
 
 ### 3.1. Interpretable Data Representations
 
@@ -90,7 +86,6 @@ $\displaystyle \mathcal{L}(f, g, \pi_\mathbf{x})=\sum_{\mathbf{z}, \mathbf{z}'\i
 Text 데이터의 경우 해석 가능한 표현($\mathbf{x}'$)으로 Bag of Words를, 모형 복잡도의 척도($\Omega$)로 단어의 개수를 사용하고, Image 데이터의 경우에도 이와 유사하게 Super Pixel과 그 개수를 사용한다. 따라서 Lasso 회귀를 통해 $K$개의 Feature를 선택하고, Sparse Linear Regression을 통해 각 Feature에 대한 가중치를 결정한다.
 
 ## 4. Submodular Pick for Explaining Models
----
 
 사용자들이 많은 양의 해석을 전부 확인하기에는 시간이 부족하기 때문에, 사용자가 집중해야 할 개별 데이터를 신중하게 선별하여 제시함으로써 모형 자체에 대한 신뢰도를 높일 수 있다. 본 논문에서는 Text 데이터에 적용할 수 있는 알고리즘에 대해 소개하고 있다.
 
@@ -103,7 +98,6 @@ $\displaystyle \text{Pick}(\mathcal{W}, I)=\underset{{V, \vert V\vert≤B}}{\tex
 4. Marginal Coverage $c(V\cup\{i\}, \mathcal{W}, I)-c(V, \mathcal{W}, I)$를 가장 크게 만드는 데이터를 ($\vert V\vert≤B$일 때까지) $V$에 반복적으로 추가함으로써 최적화 문제의 근사해를 구한다.
 
 ## 8. Conclusion and Future Work
----
 
 - 본 논문에서는 Interpretable Model($g$)로 Sparse Linear Model을 사용하는 경우에 대해서만 다루고 있지만, Decision Tree와 같은 더 다양한 종류의 모형을 사용하는 방향으로의 연구가 필요하다.
 - Image 데이터에 적용할 수 있는 Submodular Pick 알고리즘에 대한 연구가 필요하다.
@@ -111,11 +105,11 @@ $\displaystyle \text{Pick}(\mathcal{W}, I)=\underset{{V, \vert V\vert≤B}}{\tex
 - Theoretical Property(적절한 표본의 수 등)와 Compuatational Optimization(Parallelization, GPU Processing 등)에 대한 연구가 필요하다.
 
 ## Memo
----
 
 - 이 논문은 Tabular Data에 대한 내용을 담고 있지 않다. Tabular Data에 대한 알고리즘이 궁금할 경우 [lime/lime_tabular.py](https://github.com/marcotcr/lime/blob/ce2db6f20f47c3330beb107bb17fd25840ca4606/lime/lime_tabular.py)를 참조해야한다.
 
-## Reference
 ---
+
+**Reference**
 
 1. Ribeiro, M. T., Singh, S., & Guestrin, C. (2016, August). " Why should i trust you?" Explaining the predictions of any classifier. In *Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining* (pp. 1135-1144).
