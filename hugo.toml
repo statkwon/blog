@@ -7,8 +7,8 @@ disqusShortname = "statkwon" # Enable Disqus comments by entering your Disqus sh
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 
 [Author] # Used in authorbox
-  name = "Me"
-  bio = "Data Scientist? Developer?"
+  name = "STATKWON"
+  bio = "Wanna be a Skillful Data Scientist"
   avatar = "img/avatar.png"
 
 [Params]
@@ -39,8 +39,8 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
   fontFamilySecondary = "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
 
 [Params.logo]
-  title = "ML LAB" # Logo title, otherwise will use site title
-  subtitle = "To be a skillful ML engineer" # Logo subtitle
+  title = "INTUITIVE STATISTICAL LEARNING" # Logo title, otherwise will use site title
+  subtitle = "Wanna be a Skillful Data Scientist" # Logo subtitle
 
 [Params.sidebar]
   home = "right" # Configure layout for home page
