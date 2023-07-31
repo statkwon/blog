@@ -10,7 +10,7 @@ sidebar: false
 
 ## Multivariate Adaptive Regression Splines
 
-$\displaystyle f(\mathbf{x})=\beta_0+\sum_{m=1}^M\beta_mh_m(\mathbf{x})$, where $h_m(\mathbf{x})=(X_j-t)_+ \\;\text{or}\\; (t-X_j)_+$
+$\displaystyle f(\mathbf{x})=\beta\_0+\sum\_{m=1}^M\beta\_mh\_m(\mathbf{x})$, where $h\_m(\mathbf{x})=(X\_j-t)\_+\\;\text{or}\\; (t-X\_j)\_+$
 
 MARS는 다음과 같은 특수한 형태의 Basis Function들의 선형 결합으로 반응변수를 추정하는 알고리즘이다.
 
