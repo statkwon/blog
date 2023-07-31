@@ -1,5 +1,5 @@
 ---
-title: "AdaBoost Classifier"
+title: "AdaBoost"
 date: 2022-01-12
 categories:
   - "ML"
