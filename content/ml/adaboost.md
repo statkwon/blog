@@ -36,7 +36,7 @@ $f(x)=\sum\_{m=1}^M\beta\_mb(x;\gamma\_m)$과 같은 basis expansion 형태의 �
     1. Compute $(\beta\_m, \gamma\_m)=\underset{\beta, \gamma}{\text{argmin}}\sum\_{i=1}^NL(y\_i, f\_{m-1}(x\_i)+\beta b(x\_i;\gamma))$.
     2. Set $f\_m(x)=f\_{m-1}(x)+\beta\_mb(x;\gamma\_m)$.
 
-## Multi-class AdaBoost
+## AdaBoost-SAMME
 
 기존 loss 대신 multi-class exponential loss를 사용하면 AdaBoost를 multi-class 문제에도 적용할 수 있다. 결과적으로 기존 알고리즘에서 각 weak classifier에 대한 가중치만 다음과 같이 변경된다.
 
@@ -47,7 +47,7 @@ $\alpha\_m=\log\left(\dfrac{1-\text{err}\_m}{\text{err}\_m}\right)+\log(K-1)$
 위 식이 의미하는 것은 어떤 weak classifier의 가중치가 양수가 되려면 $1-\text{err}\_m>1/K$이어야 한다는 것이다. \
 &rarr; 어떤 weak classifier의 accuracy가 random guessing($1/K$)보다 좋아야 한다.
 
-## AdaBoost Regressor
+## AdaBoost.R2
 
 AdaBoost를 regression 문제에 적용하고 싶으면 다음과 같은 loss를 사용하면 된다.
 

@@ -4,7 +4,6 @@ date: 2022-01-03
 categories:
   - "ML"
 tags:
-  - "Spline"
   - "PRIM"
 sidebar: false
 ---
