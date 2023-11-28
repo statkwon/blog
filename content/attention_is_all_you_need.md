@@ -1,11 +1,10 @@
 ---
 title: "Attention Is All You Need"
 date: 2022-04-29
-categories:
-  - "Paper Review"
 tags:
   - "Transformer"
 sidebar: false
+draft: true
 ---
 
 ## 1. Introduction

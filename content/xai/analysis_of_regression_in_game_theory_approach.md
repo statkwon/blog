@@ -2,9 +2,8 @@
 title: "Analysis of Regression in Game Theory Approach"
 date: 2022-03-27
 categories:
-    - "Paper Review"
-tags:
     - "XAI"
+tags:
     - "Net Effect"
     - "Shapley Value"
 sidebar: false

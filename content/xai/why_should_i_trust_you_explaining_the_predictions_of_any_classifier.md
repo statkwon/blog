@@ -2,9 +2,8 @@
 title: "\"Why Should I Trust You?\" Explaining the Predictions of Any Classifier"
 date: 2022-02-06
 categories:
-  - "Paper Review"
-tags:
   - "XAI"
+tags:
   - "LIME"
 sidebar: false
 ---
@@ -28,7 +27,7 @@ sidebar: false
 
 ## 2. The Case for Explanations
 
-{{<figure src="/paper_review/lime1.png" width="600">}}
+{{<figure src="/xai/lime1.png" width="600">}}
 
 예측 결과를 해석한다는 것은 모형의 예측 결과와 변수 사이의 관계를 이해할 수 있는 자료를 제시하는 것
 
@@ -89,7 +88,7 @@ Text 데이터의 경우 해석 가능한 표현($\mathbf{x}'$)으로 Bag of Wor
 
 사용자들이 많은 양의 해석을 전부 확인하기에는 시간이 부족하기 때문에, 사용자가 집중해야 할 개별 데이터를 신중하게 선별하여 제시함으로써 모형 자체에 대한 신뢰도를 높일 수 있다. 본 논문에서는 Text 데이터에 적용할 수 있는 알고리즘에 대해 소개하고 있다.
 
-{{<figure src="/paper_review/lime2.png" width="200">}}
+{{<figure src="/xai/lime2.png" width="200">}}
 
 1. 주어진 데이터 $X$에 대해 Explanation Matrix $\mathcal{W}_{n\times d'}$을 구한다. Interpretable Model($g$)로 Linear Model($g(\mathbf{z}')=\mathbf{w}_g\cdot\mathbf{z}'$)을 사용한 경우 $\mathcal{W}\_{ij}=\vert w\_{g\_{ij}}\vert$가 된다.
 2. 각 Feature의 중요도 $I_j=\sqrt{\sum_{i=1}^n\mathcal{W}_{ij}}$를 계산한다.

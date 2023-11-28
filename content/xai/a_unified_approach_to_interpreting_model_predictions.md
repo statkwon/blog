@@ -2,9 +2,8 @@
 title: "A Unified Approach to Interpreting Model Predictions"
 date: 2022-04-02
 categories:
-  - "Paper Review"
-tags:
   - "XAI"
+tags:
   - "SHAP"
   - "Shapley Value"
 sidebar: false
@@ -24,7 +23,7 @@ $\displaystyle g(\mathbf{z}')=\phi_0+\sum_{i=1}^M\phi_iz_i'$, where $\mathbf{z}'
 
 AFAM은 $0$ 또는 $1$의 값만을 갖는 Simplified Input $z_1', \ldots, z_M'$의 선형 결합으로 $f(\mathbf{z})$를 근사한다. ($\mathbf{z}'\approx\mathbf{x}'$)
 
-여기서 주목할 점은 [LIME](/paper_review/why_should_i_trust_you_explaining_the_predictions_of_any_classifier), DeepLIFT, Layer-Wise Relevance Propagation, [Shapley Regression Values](/paper_review/analysis_of_regression_in_game_theory_approach), [Shapley Sampling Values](/paper_review/explaining_prediction_models_and_individual_predictions_with_feature_contributions), Quantitative Input Influence 등의 기존 방법론들이 모두 이와 같은 형태를 갖는다는 것이다.
+여기서 주목할 점은 [LIME](/xai/why_should_i_trust_you_explaining_the_predictions_of_any_classifier), DeepLIFT, Layer-Wise Relevance Propagation, [Shapley Regression Values](/xai/analysis_of_regression_in_game_theory_approach), [Shapley Sampling Values](/xai/explaining_prediction_models_and_individual_predictions_with_feature_contributions), Quantitative Input Influence 등의 기존 방법론들이 모두 이와 같은 형태를 갖는다는 것이다.
 
 ## 3. Simple Properties Uniquely Determine Additive Feature Attributions
 
@@ -58,7 +57,7 @@ AFAM이 Local Accuracy, Missingness, 그리고 Consistency를 만족시키기 �
 
 ## 4. SHAP (SHapley Additive exPlanation) Values
 
-{{<figure src="/paper_review/shap1.png" width="700">}}
+{{<figure src="/xai/shap1.png" width="700">}}
 
 이 논문에서는 Value Function으로 $f\_\mathbf{x}(\mathbf{z}')=\text{E}[f(\mathbf{z})\vert\mathbf{z}\_S]$를 사용함으로써 $\phi\_i(f, \mathbf{x})$를 $f\_\mathbf{x}(\mathbf{x}')=f(\mathbf{x})$에 대한 $i$번째 변수의 Shapley Value로 사용하는 방식을 SHAP이라는 이름의 통합 프레임워크로 제시하고 있다. ($S$ is the set of non-zero indices in $\mathbf{z}'$)
 
@@ -74,7 +73,7 @@ f\_\mathbf{x}(\mathbf{z}')&=\text{E}[f(\mathbf{z})\vert\mathbf{z}\_S] \\\\
 &\approx\text{E}_{\mathbf{z}\_\bar{S}}[f(\mathbf{z})] \qquad (\text{Feature Independence})
 \end{aligned}$
 
-[Shapley Sampling Values](/paper_review/explaining_prediction_models_and_individual_predictions_with_feature_contributions)나 Quantitative Input Influence와 같은 방식으로 SHAP Value를 추정할 수 있다.
+[Shapley Sampling Values](/xai/explaining_prediction_models_and_individual_predictions_with_feature_contributions)나 Quantitative Input Influence와 같은 방식으로 SHAP Value를 추정할 수 있다.
 
 **Kernel SHAP**
 

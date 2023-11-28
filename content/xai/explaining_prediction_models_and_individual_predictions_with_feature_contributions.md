@@ -2,9 +2,8 @@
 title: "Explaining Prediction Models and Individual Predictions with Feature Contributions"
 date: 2022-03-28
 categories:
-  - "Paper Review"
-tags:
   - "XAI"
+tags:
   - "SHAP"
 sidebar: false
 ---
@@ -28,7 +27,7 @@ $\begin{aligned}
 
 이를 축구 경기에 빗대어 표현하자면, 어떤 경기에서 팀이 5점을 득점했을 때 $i$번째 선수의 기여도를
 
-[해당 경기의 득점(5점) $-$ $i$번째 선수를 제외한 나머지 선수들이 모두 해당 경기와 동일하게 득점한 다른 경기들의 평균 득점]으로 계산하는 것으로 생각할 수 있다.
+'해당 경기의 득점(5점) $-$ $i$번째 선수를 제외한 나머지 선수들이 모두 해당 경기와 동일하게 득점한 다른 경기들의 평균 득점'으로 계산하는 것으로 생각할 수 있다.
 
 이러한 지표가 유의미하게 받아들여지기 위해서는 득점에 있어 선수들 사이의 협력은 존재하지 않는다는 가정이 필요하다. 하지만 축구 경기에서 대부분의 득점이 다른 팀원들의 도움을 통해 이루어지듯이, 많은 경우 변수 간 상호작용이 존재한다. 따라서 보다 일반적인 모형에 대해 Situational Importance를 적용하는 것은 바람직하지 않다.
 
@@ -107,7 +106,7 @@ $\displaystyle \hat{\phi}\_i(\mathbf{x})=\dfrac{1}{m}\sum_{j=1}^mV_j$
 
 **Algorithm** - Approximating the $i$th feature's contribution for model $f$, instance $\mathbf{x}\in\mathcal{X}$ and distribution $p$
 
-{{<figure src="/paper_review/shapley_sampling_values1.png" width="700">}}
+{{<figure src="/xai/shapley_sampling_values1.png" width="700">}}
 
 ## Memo
 
