@@ -86,21 +86,25 @@ plt.show()
 ```py
 HOP_LEN = 160
 WIN_LEN = 480
-NUM_WINDOWS = 160000 // HOP_LEN
+N_FFT = 512
 ```
 
 ```py
+window = sp.signal.windows.hann(WIN_LEN, sym=False)
 signal, sr = sf.read("clnsp113_car_19980_0_snr18_tl-30_fileid_178.wav")
+k = (len(signal) - (WIN_LEN - HOP_LEN)) // HOP_LEN
 ```
 
 ```py
 signal_add = np.zeros(len(signal))
 
-for i in range(NUM_WINDOWS):
+for i in range(k):
+    frame = signal[HOP_LEN * i : HOP_LEN * i + WIN_LEN].copy()
+    frame *= window
+    fft_res = sp.fft.fft(frame, N_FFT)
+    ifft_res = sp.fft.ifft(frame, WIN_LEN)
     for j in range(WIN_LEN):
-        if HOP_LEN * i + j >= len(signal):
-            break
-        signal_add[HOP_LEN * i + j] += signal[HOP_LEN * i + j] * window[j]
+        signal_add[HOP_LEN * i + j] += frame[j]
 ```
 
 ```py
