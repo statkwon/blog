@@ -3,8 +3,11 @@ title = 'ML LAB'
 languageCode = 'en-us'
 paginate = "5"
 theme = "mainroad"
-disqusShortname = "statkwon" # Enable Disqus comments by entering your Disqus shortname
-googleAnalytics = "" # Enable Google Analytics by entering your tracking id
+
+[services.disqus]
+  shortname = "statkwon" # Enable Disqus by entering your Disqus shortname
+[services.googleAnalytics]
+  ID = "G-GE14Z4QTKV" # Enable Google Analytics by entering your tracking ID
 
 [Author] # Used in authorbox
   name = "STATKWON"
