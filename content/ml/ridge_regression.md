@@ -1,91 +1,49 @@
 ---
 title: "Ridge Regression"
-date: 2021-02-25
+date: 2023-12-18
+lastmod: 2023-12-20
 categories:
   - "ML"
 tags:
+  - "Ridge"
+  - "Regression"
   - "Regularization"
 sidebar: false
 ---
 
 ## Ridge Regression
 
-Subset selection methods can sometimes cause high variance due to its discrete characteristic. As an alternative, shrinkage methods such as ridge regression can be used.
+Ridge regression은 선형 회귀에 $L\_2$ penalty를 추가한 모형이다. input scale에 따라 해가 달라지기 때문에 일반적으로 standardized된 input을 사용한다.
 
-Ridge regression shrinks the regression coefficients by imposing a penalty on their size. The ridge solutions are not equivariant under scaling of the inputs, and so one normally standardizes the inputs. So until now we will assume that $X$ is a standardized matrix. Coefficients of ridge regression is related to the restricted minimization problem as below.
+$$\begin{align}
+\hat{\boldsymbol{\beta}}&=\underset{\boldsymbol{\beta}}{\text{argmin}}\left\\{(\mathbf{y}-X\boldsymbol{\beta})^T(\mathbf{y}-X\boldsymbol{\beta})+\lambda\Vert\boldsymbol{\beta}\Vert\_2^2\right\\} \\\\
+&=\underset{\beta}{\text{argmin}}\left\\{\sum\_{i=1}^N\left(y\_i-\sum\_{j=1}^Px\_{ij}\beta\_j\right)^2+\lambda\sum\_{j=1}^P\beta\_j^2\right\\} \\\\
+&=\underset{\beta}{\text{argmin}}\sum\_{i=1}^N\left(y\_i-\sum\_{j=1}^Px\_{ij}\beta\_j\right)^2 \\; \text{subject to} \\; \sum\_{j=1}^P\beta\_j^2\leq t
+\end{align}$$
 
-$\begin{aligned}
-\hat{\beta}^{\text{ridge}}&=\underset{\beta}{\text{argmin}}\left\\{\sum_{i=1}^N(y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j)^2+\lambda\sum_{j=1}^p\beta_j^2\right\\} \\\\
-&=\underset{\beta}{\text{argmin}}\sum_{i=1}^N\left(y_i-\beta_0-\sum_{j=1}^px_{ij}\beta_j\right)^2 \\; \text{subject to} \\; \sum_{j=1}^p\beta_j^2≤t
-\end{aligned}$
+위 식의 해를 구하면 $\hat{\boldsymbol{\beta}}=(X^TX+\lambda I)^{-1}X^T\mathbf{y}$이 된다. 이때 $X^TX$가 positive semi-definite이므로, $(X^TX+\lambda I)$는 positive definite이 되어 항상 invertible하게 된다.
 
-We can solve this problem with a matrix notation and get the ridge coefficient as $\hat{\beta}^{\text{ridge}}=(X^TX+\lambda I)^{-1}X^Ty$.
+## Geometric Interpretation
 
-$\begin{aligned}
-\dfrac{\partial}{\partial\beta}(y-X\beta)^T(y-X\beta)+\lambda\beta^T\beta&=\dfrac{\partial}{\partial\beta}y^Ty-2\beta^TX^Ty+\beta^TX^TX\beta+\lambda\beta^T\beta \\\\
-&=-2X^Ty+2X^TX\beta+2\lambda\beta
-\end{aligned}$
+{{<figure src="/ml/ridge1.gif" width="400">}}
 
-Here, $X^TX+\lambda I$ is always invertible for any $\lambda>0$ because the positive semi-definite matrix $X^TX$ becomes positive definite when a positive constant is added to the diagonal of $X^T$. Therefore, we can express our fitted value $\hat{y}$ as $X\hat{\beta}^{\text{ridge}}=X(X^TX+\lambda I)^{-1}X^Ty$.
+$X$의 SVD를 활용하여 $\hat{\mathbf{y}}$을 다음과 같이 나타낼 수 있다. ($X=UDV^T$)
 
-## Geometric Interpretation of Ridge Regression
+$$\begin{align}
+\hat{\mathbf{y}}&=X(X^TX+\lambda I)^{-1}X^T\mathbf{y} \\\\
+&=UD(D^2+\lambda I)^{-1}DU^T\mathbf{y} \\\\
+&=\sum\_{j=1}^P\dfrac{d\_j^2}{d\_j^2+\lambda}\mathbf{u}\_j\mathbf{u}\_j^T\mathbf{y}
+\end{align}$$
 
-We can make some geometric interpretation using $X=UDV^T$, the singular value decomposition of $X$. Let's think about the case of linear regerssion first.
+$\mathbf{u}\_j\mathbf{u}\_j^T\mathbf{y}=\text{proj}\_{\mathbf{u}\_j}\mathbf{y}$이므로, $\hat{\mathbf{y}}$은 $\text{col}(X)$의 orthonormal basis인 $\mathbf{u}\_j$에 $\mathbf{y}$를 projection한 것을 $\frac{d\_j^2}{d\_j^2+\lambda}$만큼 축소한 벡터들의 합과 같다. 이때 $\mathbf{u}\_j$가 $X$의 $j$ 번째 normalized principal component($\frac{X\mathbf{v}\_j}{d\_j}$)라는 점에서, 분산이 작은 방향일수록 높은 shrinkage를 받음을 알 수 있다.
 
-$\begin{aligned}
-\hat{y}&=X(X^TX)^{-1}X^Ty \\\\
-&=UDV^T(VDU^TUDV^T)^{-1}VDU^Ty \\\\
-&=UDV^T(V^T)^{-1}(D^2)^{-1}V^{-1}VDU^Ty \\\\
-&=UU^Ty \\\\
-&=\sum_{i=1}^pu_iu_i^Ty \\\\
-&=\dfrac{y\cdot u_1}{u_1\cdot u_1}u_1+\cdots+\dfrac{y\cdot u_p}{u_p\cdot u_p}u_p
-\end{aligned}$
+변수 간 [multicollinearity]()가 존재할 경우 regression coefficient가 불안정해지는 문제가 발생하는데, Ridge regression이 이를 완화하는데 도움이 된다.
 
-This is same as to project $y$ onto each vector in the orthogonal basis of column space of $X$ and make sum of them.
-
-{{<figure src="/ml/ridge1.png" width="300">}}
-
-Now we will apply this concept to ridge regression.
-
-$\begin{aligned}
-\hat{y}&=X(X^TX+\lambda I)^{-1}X^Ty \\\\
-&=UDV^T(VDU^TUDV^T+\lambda I)^{-1}VDU^Ty \\\\
-&=UDV^T(VD^2V^T+\lambda I)^{-1}VDU^Ty \\\\
-&=UD\\{V^{-1}(VD^2V^T+\lambda I)(V^T)^{-1}\\}DU^Ty \\\\
-&=U(D^2+\lambda I)^{-1}U^Ty \\\\
-&=\sum_{i=1}^pu_i\dfrac{d_i^2}{d_i^2+\lambda}u_i^Ty \\\\
-&=\dfrac{d_1^2}{d_1^2+\lambda}\dfrac{y\cdot u_1}{u_1\cdot u_1}y+\cdots+\dfrac{d_p^2}{d_p^2+\lambda}\dfrac{y\cdot u_p}{u_p\cdot u_p}y
-\end{aligned}$
-
-Ridge regression is similar to the linear regression, but differs in that it makes a shrinkage to the direction of each $u_i$ by the amount of $\dfrac{d_i^2}{d_i^2+\lambda}$. Thus, it means that a greater amount of shrinkage is applied to the coordinates of basis vectors with smaller $d_j^2$.
-
-## Python Code for Ridge Regression
-
-Github Link: [MyRidgeRegression.ipynb](https://github.com/statkwon/ML_Study/blob/master/MyRidgeRegression.ipynb)
-
-```py
-import numpy as np
-
-class MyRidgeRegerssion:
-    def __init__(self, alpha=1.0):
-        self.alpha = alpha
-        
-    def fit(self, X_train, y_train):
-        ones = np.ones(len(X_train))
-        X_train = np.array(X_train)
-        X_train = np.column_stack((np.ones(len(X_train)), X_train))
-        y_train = np.array(y_train)
-        self.beta = np.linalg.inv(np.transpose(X_train).dot(X_train)+self.alpha*np.identity(X_train.shape[1])).dot(np.transpose(X_train)).dot(y_train)
-        
-    def predict(self, X_test):
-        ones = np.ones(len(X_test))
-        X_test = np.array(X_test)
-        X_test = np.column_stack((np.ones(len(X_test)), X_test))
-        return X_test.dot(self.beta)
-```
+"If we consider fitting a linear surface over this domain, the configuration of the data allow us to determine its gradient more accurately in the long direction than the short. Ridge regression protects against the potentially high variance of gradients estimated in the short directions. The implicit assumption is that the response will tend to vary most in the directions of high variance of the inputs. This is often a reasonable assumption, since predictors are often chosen for study because they vary with the response variable, but need not hold in general."
 
 ---
 
 **Reference**
 
 1. Hastie, T., Tibshirani, R., Friedman, J. H., & Friedman, J. H. (2009). The elements of statistical learning: data mining, inference, and prediction (Vol. 2, pp. 1-758). New York: springer.
+2. https://online.stat.psu.edu/stat508/lesson/5/5.1
