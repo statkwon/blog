@@ -15,11 +15,11 @@ convex & differentiable한 함수 $g$와 convex한 함수 $h$에 대하여 $f(\m
 
 > For $k=1, 2, 3, \ldots$
 >
-> $x\_1^{(k)}=\underset{x\_1}{\text{argmin}}f(x\_1, x\_2^{(k-1)}, x\_3^{(k-1)}, \ldots, x\_n^{(k-1)})$ \
-> $x\_2^{(k)}=\underset{x\_2}{\text{argmin}}f(x\_1^{(k)}, x\_2, x\_3^{(k-1)}, \ldots, x\_n^{(k-1)})$ \
-> $x\_3^{(k)}=\underset{x\_3}{\text{argmin}}f(x\_1^{(k)}, x\_2^{(k)}, x\_3, \ldots, x\_n^{(k-1)})$ \
+> $x\_1^{(k)}\in\underset{x\_1}{\text{argmin}}f(x\_1, x\_2^{(k-1)}, x\_3^{(k-1)}, \ldots, x\_n^{(k-1)})$ \
+> $x\_2^{(k)}\in\underset{x\_2}{\text{argmin}}f(x\_1^{(k)}, x\_2, x\_3^{(k-1)}, \ldots, x\_n^{(k-1)})$ \
+> $x\_3^{(k)}\in\underset{x\_3}{\text{argmin}}f(x\_1^{(k)}, x\_2^{(k)}, x\_3, \ldots, x\_n^{(k-1)})$ \
 > $\cdots$ \
-> $x\_n^{(k)}=\underset{x\_n}{\text{argmin}}f(x\_1^{(k)}, x\_2^{(k)}, x\_3^{(k)}, \ldots, x\_n)$
+> $x\_n^{(k)}\in\underset{x\_n}{\text{argmin}}f(x\_1^{(k)}, x\_2^{(k)}, x\_3^{(k)}, \ldots, x\_n)$
 
 초깃값 $\mathbf{x}^{(0)}$로는 적당한 값을 사용한다.
 
@@ -33,7 +33,7 @@ $$\begin{align}
 &=0
 \end{align}$$
 
-을 만족하는 $\beta\_i=\dfrac{\mathbf{x}\_i^T(\mathbf{y}-X\_{-i}\boldsymbol{\beta}\_{-i})}{X\_i^TX\_i}$로 업데이트를 진행하면 된다.
+을 만족하는 $\beta\_i=\dfrac{\mathbf{x}\_i^T(\mathbf{y}-X\_{-i}\boldsymbol{\beta}\_{-i})}{X\_i^TX\_i}$로 업데이트를 진행하면 된다. 초깃값으로는 $\boldsymbol{\beta}^{(0)}=\mathbf{0}$을 사용하였다.
 
 ```py
 import numpy as np
