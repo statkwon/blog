@@ -1,7 +1,7 @@
 ---
 title: "Coordinate Descent"
 date: 2023-12-21
-lastmod: 2023-12-21
+lastmod: 2023-12-22
 categories:
   - "ML"
 tags:
@@ -56,9 +56,9 @@ def coordinate_descent(X: np.ndarray, y: np.ndarray, n_iter: int):
 
 ```py
 X, y, coef = make_regression(n_samples=100, n_features=5, noise=0.1, coef=True, random_state=0)
-print(coef)  ## [45.70587613 85.71249175 97.99623263 11.73155642 42.37063535]
+print(coef)  # [45.70587613 85.71249175 97.99623263 11.73155642 42.37063535]
 beta = coordinate_descent(X, y, 10)
-print(beta)  ## [45.69972366 85.72175552 98.00526381 11.72151389 42.37038922]
+print(beta)  # [45.69972366 85.72175552 98.00526381 11.72151389 42.37038922]
 ```
 
 ---
