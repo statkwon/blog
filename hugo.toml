@@ -11,7 +11,7 @@ theme = "mainroad"
 
 [Author] # Used in authorbox
   name = "STATKWON"
-  bio = "Wanna be a Skillful Data Scientist"
+  bio = "Wanna be a Skillful ML Engineer"
   avatar = "img/avatar.png"
 
 [Params]
@@ -43,7 +43,7 @@ theme = "mainroad"
 
 [Params.logo]
   title = "INTUITIVE STATISTICAL LEARNING" # Logo title, otherwise will use site title
-  subtitle = "Wanna be a Skillful Data Scientist" # Logo subtitle
+  subtitle = "Wanna be a Skillful ML Engineer" # Logo subtitle
 
 [Params.sidebar]
   home = "right" # Configure layout for home page
